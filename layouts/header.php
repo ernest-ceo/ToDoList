@@ -14,7 +14,7 @@
     <div class="nav">
         <ol>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Logowanie</a></li>
-            <li><a href="#">Rejestracja</a></li>
+            <li><a href="./src/login.php">Logowanie</a></li>
+            <li><a href="./src/registration.php">Rejestracja</a></li>
         </ol>
     </div>
