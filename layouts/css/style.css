@@ -1,0 +1,120 @@
+html 
+{
+    min-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+body 
+ {
+    background-color: grey;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/img01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    font-weight: 300;
+    margin: 0 !important;
+    padding: 0;
+    color: #fff;
+ }
+
+
+.nav
+{
+    width: 100%;
+    height: 40px;
+    padding: 5px 0;
+    background-color: #000;
+    text-align: center;
+    opacity: 0.8;
+}
+
+#content
+{
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#content h1
+{
+    font-size: 5em;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+#content h2
+{
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+#content .button
+{
+    text-decoration: none;
+    color: #fff;
+    border: #fff 1px solid;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#content .button:hover
+{
+    background-color: #000;
+    opacity: 0.8;
+    border: #000 1px solid;
+}
+
+ol{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 18px;
+    height: 30px;
+}
+
+ol a
+{
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+ol > li
+{
+    float: left;
+    width: 100px;
+    height: 35px;
+}
+
+ol > li:hover
+{
+    background-color: grey;
+    color: #000;
+}
+
+ol > li:hover a
+{
+    color: white;
+    text-decoration: none;
+}
+
+.footer
+{
+    padding: 10px;
+    text-align: right;
+    font-size: 13px;
+}
