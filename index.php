@@ -1,13 +1,7 @@
-<?php 
-    require_once './layouts/header.php';
-?>
+<?php
+    require_once 'config/menu.php';
 
-<div id="content">
-    <h1>Witaj!</h1>
-    <h2>Zaplanuj z nami swój dzień.</h2>
-    <a href="#" class="button">Dowiedz się więcej</a>
-</div>
+$content = array();
+$content[0] = "./layouts/index.php";
+include_once "./layouts/main.php";
 
-<div class="footer">
-    Work In Progress &copy; <?php echo date("Y");?>
-</div>
