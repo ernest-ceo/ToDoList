@@ -9,6 +9,7 @@ if(isset($_POST['register'])){
     $password = $_POST['password'];
 
     $hashPassword = password_hash($password,PASSWORD_BCRYPT);
+    var_dump($hashPassword);
 
     $sth = $db->prepare('INSERT INTO users (first_name, second_name, email, password) VALUE (:first_name,:second_name,:email,:password)');
     $sth->bindValue(':first_name', $first_Name, PDO::PARAM_STR);
@@ -18,6 +19,7 @@ if(isset($_POST['register'])){
     $sth->execute();
 
     die('Rejestracja pomyslna!');
+
 }
 ?>
 <h1>Formularz rejestracyjny</h1>
