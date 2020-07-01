@@ -1,6 +1,10 @@
 <?php
 declare(strict_types=1);
 require_once("config/database.php");
+require_once 'config/menu.php';
+$content = array();
+$content[0] = "./layouts/registration.php";
+include_once "./layouts/main.php";
 
 if(isset($_POST['register'])){
     $first_Name = $_POST['first_name'];
@@ -20,12 +24,3 @@ if(isset($_POST['register'])){
     die('Rejestracja pomyslna!');
 
 }
-?>
-<h1>Formularz rejestracyjny</h1>
-<form method="post">
-    <input type="text" name="first_name" placeholder="Imię">
-    <input type="text" name="second_name" placeholder="Nazwisko">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Hasło">
-    <button type="submit" name="register">Zarejestruj</button>
-</form>

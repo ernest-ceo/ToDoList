@@ -1,6 +1,10 @@
 <?php
 declare(strict_types=1);
 require_once("config/database.php");
+require_once 'config/menu.php';
+$content = array();
+$content[0] = "./layouts/login.php";
+include_once "./layouts/main.php";
 
 if(isset($_POST['login'])){
     $email = trim($_POST['email']);
@@ -20,10 +24,3 @@ if(isset($_POST['login'])){
         echo "<h3>Nie znaleziono uzytkownika</h3>";
     }
 }
-?>
-<h1>Logowanie</h1>
-<form method="post">
-    <input type="text" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Hasło">
-    <button type="submit" name="login">Zaloguj</button>
-</form>

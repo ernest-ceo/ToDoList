@@ -118,3 +118,95 @@ ol > li:hover a
     text-align: right;
     font-size: 13px;
 }
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 88vh;
+    height: auto;
+}
+
+.form-holder {
+    background: #000;
+    width: 420px;
+    max-width: 90%;
+    padding: 30px 0px;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.form-holder h1 {
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.form .form-group {
+    display: flex;
+    position: relative;
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    background: #222;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    border-bottom: 2px solid #777;
+    border-radius: 5px;
+    padding-left: 40px;
+}
+
+.form-group img {
+    width: 26px;
+    position: absolute;
+    left: 15px;
+    top: 13px;
+}
+
+.form-group button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    border: 2px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-group input:focus{
+    background: #444;
+    border-color: #39a165;
+}
+
+.form-group input:hover {
+    background: #444;
+    border-color: #39a165;
+
+}
+
+.form-group button:hover {
+    background: #444;
+}
+
+.form-group a {
+    color: #999;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.form-group a:hover {
+    color: #444;
+}
