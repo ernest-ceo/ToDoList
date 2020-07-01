@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once("../config/database.php");
+require_once("config/database.php");
 
 if(isset($_POST['register'])){
     $first_Name = $_POST['first_name'];
