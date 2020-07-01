@@ -1,6 +1,6 @@
 <?php
 $menu = [
     "index.php" => "Home",
-    "./src/login.php" => "Logowanie",
-    "./src/registration.php" => "Rejestracja"
+    "login.php" => "Logowanie",
+    "registration.php" => "Rejestracja"
 ];
