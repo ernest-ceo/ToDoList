@@ -3,9 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 29 Cze 2020, 15:50
--- Wersja serwera: 10.4.11-MariaDB
--- Wersja PHP: 7.4.5
+
+-- Czas generowania: 29 Cze 2020, 18:51
+-- Wersja serwera: 10.4.13-MariaDB
+-- Wersja PHP: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +46,7 @@ CREATE TABLE `users` (
   `first_name` varchar(30) NOT NULL,
   `second_name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(32) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
