@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-session_start();
+require_once 'config/session.php';
 require_once "config/database.php";
 require_once 'config/menu.php';
 
