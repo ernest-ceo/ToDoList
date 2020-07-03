@@ -2,9 +2,6 @@
 declare(strict_types=1);
 require_once("config/database.php");
 require_once 'config/menu.php';
-$content = array();
-$content[0] = "./layouts/registration.php";
-include_once "./layouts/main.php";
 
 if(isset($_POST['register'])){
     $first_Name = $_POST['first_name'];
@@ -24,3 +21,7 @@ if(isset($_POST['register'])){
     die('Rejestracja pomyslna!');
 
 }
+
+$content = array();
+$content[0] = "./layouts/registration.php";
+include_once "./layouts/main.php";
