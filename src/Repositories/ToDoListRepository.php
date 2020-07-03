@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\Repositories;
 use App\Database;
+use PDO;
 use PDOException;
 
 class ToDoListRepository
@@ -9,9 +10,9 @@ class ToDoListRepository
     public Database $db;
     public $list;
 
-    public function __construct()
+    public function __construct($pdo)
     {
-        $this->db=new Database;
+        $this->db=$pdo;
     }
 
     public function getAll(int $userID, string $orderBy='id')
