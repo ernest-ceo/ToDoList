@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require_once "config/database.php";
 require_once 'config/menu.php';
-session_start();
+require_once 'config/session.php';
 
 if(isset($_POST['register'])){
     $first_Name = $_POST['first_name'];

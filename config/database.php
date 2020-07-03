@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once("db_pass.php");
+require_once 'config/db_pass.php';
 
 $dsn = "mysql:dbname=$dbname;host=$host";
 
