@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 require_once("config/database.php");
+require("config/database.php");
+session_start();
+
+if(isset($_SESSION['user'])){
+    die ("<h3>Jestes juz zalogowany</h3>");
+}
 
 if(isset($_POST['login'])){
     $email = trim($_POST['email']);
@@ -12,6 +18,8 @@ if(isset($_POST['login'])){
     $user = $sth->fetch(PDO::FETCH_ASSOC);
     if($user){
         if(password_verify($password,$user['password'])){
+            $_SESSION['user'] = htmlspecialchars($_POST['email']);
+            // header("Location: http://localhost/index.php");
             die("<h3>Uzytkownik zalogowany pomyslnie</h3>");
         }else{
             echo "<h3>Nieprawidlowe haslo</h3>";

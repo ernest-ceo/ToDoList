@@ -2,5 +2,6 @@
 $menu = [
     "index.php" => "Home",
     "login.php" => "Logowanie",
-    "registration.php" => "Rejestracja"
+    "registration.php" => "Rejestracja",
+    "logout.php" => "Wyloguj"
 ];

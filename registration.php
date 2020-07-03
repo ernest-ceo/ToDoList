@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once("config/database.php");
+session_start();
 
 if(isset($_POST['register'])){
     $first_Name = $_POST['first_name'];
