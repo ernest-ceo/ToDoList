@@ -51,18 +51,4 @@ class ListPrinter
          </div>';
         return $htmlList=$this->header.$this->content.$this->footer;
     }
-
-//    public function printTheList($list)
-//    {
-//        foreach ($list as $item)
-//        {
-//            $this->content.=
-//            '
-//               <p>'.$item['id'].'</p>
-//                <p>'.$item['task'].'</p>
-//                <p>'.$item['date'].'</p>
-//            ';
-//        }
-//        return $htmlList=$this->header.$this->content.$this->footer;
-//    }
 }

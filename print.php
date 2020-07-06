@@ -29,8 +29,6 @@ else
         $listToPrint = $listPrinter->printTheList($listArray);
         $mpdf->WriteHTML($listToPrint);
         $mpdf->Output('Lista.pdf', 'D');
-//        header('location: print.php');
+        header('location: list.php');
     }
 }
-//$content[0]='layouts/print.php';
-//include_once 'layouts/main.php';
