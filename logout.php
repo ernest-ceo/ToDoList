@@ -1,7 +1,11 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])){
+declare(strict_types=1);
+require_once 'config/menu.php';
+require_once 'config/session.php';
+
+if(isset($_SESSION['username'])){
     echo 'Zostales wylogowany';
+    header('location: index.php');
 }else{
     echo 'Nie jestes zalogowany';
 }
