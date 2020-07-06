@@ -9,9 +9,8 @@ use App\Repositories\ToDoListRepository;
 
 if(isset($_SESSION['username']))
 {
-    $pdo = new Database(require_once 'config/database.php');
+    $pdo = new Database(require_once ('config/database.php'));
     $listRepository = new ToDoListRepository($pdo);
-    $_SESSION['userID']=1;
     $listArray = $listRepository->getAll($_SESSION['userID']);
 }
 else
