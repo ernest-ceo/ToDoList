@@ -1,6 +1,8 @@
 
 <div class="col-6 offset-3">
-    <button class="btn btn-warning" name="print">Drukuj</button>
+    <form action="print.php" method="post">
+       <button class="btn btn-warning" name="print">Drukuj</button>
+    </form>
     <table class="table">
         <thead>
             <tr>
