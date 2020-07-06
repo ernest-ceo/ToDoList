@@ -1,26 +1,17 @@
 <?php
 declare(strict_types=1);
-require_once "config/database.php";
-require_once 'config/menu.php';
+
 require_once 'config/session.php';
+require_once 'config/menu.php';
+require_once 'src/Database.php';
+require_once 'src/Repositories/UsersRepository.php';
+use App\Database;
+use App\Repositories\UsersRepository;
 
 if(isset($_POST['register'])){
-    $first_Name = $_POST['first_name'];
-    $second_Name = $_POST['second_name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $hashPassword = password_hash($password,PASSWORD_BCRYPT);
-
-    $sth = $db->prepare('INSERT INTO users (first_name, second_name, email, password) VALUE (:first_name,:second_name,:email,:password)');
-    $sth->bindValue(':first_name', $first_Name, PDO::PARAM_STR);
-    $sth->bindValue(':second_name', $second_Name, PDO::PARAM_STR);
-    $sth->bindValue(':email', $email, PDO::PARAM_STR);
-    $sth->bindValue(':password', $hashPassword, PDO::PARAM_STR);
-    $sth->execute();
-
-    die('Rejestracja pomyslna!');
-
+    $pdo = new Database(require_once ('config/database.php'));
+    $users = new UsersRepository($pdo);
+    $users->registration($_POST['first_name'], $second_Name = $_POST['second_name'], $_POST['email'], $_POST['password']);
 }
 
 $content = array();
