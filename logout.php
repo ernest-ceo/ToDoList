@@ -5,6 +5,7 @@ require_once 'config/session.php';
 
 if(isset($_SESSION['username'])){
     echo 'Zostales wylogowany';
+    header('location: index.php');
 }else{
     echo 'Nie jestes zalogowany';
 }
