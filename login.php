@@ -1,25 +1,16 @@
 <?php
 declare(strict_types=1);
-require_once("config/database.php");
 require_once 'config/menu.php';
+require_once 'src/Database.php';
+require_once 'src/Repositories/UsersRepository.php';
+use App\Database;
+use App\Repositories\UsersRepository;
 
 if(isset($_POST['login'])){
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
 
-    $sth = $db->prepare('SELECT * FROM users WHERE email=:email limit 1');
-    $sth->bindValue(':email', $email, PDO::PARAM_STR);
-    $sth->execute();
-    $user = $sth->fetch(PDO::FETCH_ASSOC);
-    if($user){
-        if(password_verify($password,$user['password'])){
-            die("<h3>Uzytkownik zalogowany pomyslnie</h3>");
-        }else{
-            echo "<h3>Nieprawidlowe haslo</h3>";
-        }
-    }else{
-        echo "<h3>Nie znaleziono uzytkownika</h3>";
-    }
+    $pdo = new Database(require_once ('config/database.php'));
+    $users = new UsersRepository($pdo);
+    $users->tryToLogIn($_POST['email'], $_POST['password']);
 }
 
 $content = array();
