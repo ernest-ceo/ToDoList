@@ -38,11 +38,6 @@ class UsersRepository
 
     public function registration($first_Name, $second_Name, $email, $password)
     {
-        $first_Name = $_POST['first_name'];
-        $second_Name = $_POST['second_name'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
         $hashPassword = password_hash($password,PASSWORD_BCRYPT);
 
         $sth = $this->connection->pdo->prepare('INSERT INTO users (first_name, second_name, email, password) VALUE (:first_name,:second_name,:email,:password)');
