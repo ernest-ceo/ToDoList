@@ -7,7 +7,7 @@ require_once 'src/Repositories/ToDoListRepository.php';
 use App\Database;
 use App\Repositories\ToDoListRepository;
 
-if(isset($_SESSION['username']))
+if(isset($_SESSION['userID']))
 {
     $pdo = new Database(require_once ('config/database.php'));
     $listRepository = new ToDoListRepository($pdo);
