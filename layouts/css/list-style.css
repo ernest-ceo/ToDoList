@@ -204,7 +204,8 @@ ul > li:hover a
     text-align: center;
     padding: 0px 5px 10px 0px;
     margin: 0px 8px;
-    border-radius: 50%;
+    background: none;
+    border: none;
     transition: background 0.3s;
     cursor: pointer;
 }
@@ -224,7 +225,8 @@ ul > li:hover a
     text-decoration: none;
     text-align: center;
     padding: 0px 5px 10px 0px;
-    border-radius: 50%;
+    background: none;
+    border: none;
     transition: background 0.3s;
     cursor: pointer;
 }

@@ -1,5 +1,3 @@
-
-
 <nav class="topnav">
     <button><i class="fa fa-bars" style="scale: 1.5"></i></button>
     <sidebar class="topnav-menu">
@@ -21,8 +19,8 @@
 
 <div class="section-task">
     <div class="add-task">
-          <form action="#" method="post" autocomplete="off">
-              <input type="text" name="title" placeholder="Dodaj nowe zadanie">
+          <form action="add.php" method="post" autocomplete="off">
+              <input type="text" name="task" placeholder="Dodaj nowe zadanie" required>
               <button type="submit"><b>&#43;</b></button>
           </form>
     </div>
@@ -31,8 +29,16 @@
 <div class="section-list">
     <?php foreach ($listArray as $item) { ?>
         <div class="list-item">
-            <span class="remove-task"><i class="fa fa-window-close" style="scale: 0.9"></i></span>
-            <span class="edit-task"><i class="fa fa-edit"></i></span>
+            <form action="delete.php" method="post">
+                <button name="delete" class="remove-task" value="<?=$item['id']?>">
+                    <i class="fa fa-window-close" style="scale: 0.9"></i>
+                </button>
+            </form>
+            <form action="edit.php" method="post">
+                <button name="edit" class="edit-task" value="<?=$item['id']?>">
+                    <i class="fa fa-edit"></i></i>
+                </button>
+            </form>
             <input type="checkbox"/>
             <h3><?=$item['task']?></h3>
             <br>
