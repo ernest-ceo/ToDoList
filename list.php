@@ -18,5 +18,5 @@ else
     header('location: logowanie.php');
     die;
 }
-$content[0] = 'layouts/list.php';
+$content[0] = 'layouts/list1.php';
 include_once 'layouts/main.php';
