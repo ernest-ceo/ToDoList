@@ -39,6 +39,29 @@ class ToDoListRepository
         }
     }
 
+    public function getTaskByID($id)
+    {
+        try
+        {
+            $query = 'SELECT `id`, `task` FROM `list`
+                       WHERE `id`=:id';
+            $stmt=$this->db->pdo->prepare($query);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $result = $stmt->execute();
+            if($result===true)
+            {
+                $this->list=$stmt->fetch();
+                return $this->list;
+            } else {
+                return;
+            }
+            $stmt->closeCursor();
+        }
+        catch (PDOException $e) {
+            echo "Nie udało się odczytać danych z bazy.";
+        }
+    }
+
     public function addNewTask(string $task, int $userID)
     {
         try
@@ -47,7 +70,7 @@ class ToDoListRepository
                         VALUES (:user_id, :task)";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
-            $stmt->bindValue(':userID', $userID, PDO::PARAM_INT);
+            $stmt->bindValue(':user_id', $userID, PDO::PARAM_INT);
             $result = $stmt->execute();
             return (bool)($result);
         }
@@ -64,7 +87,7 @@ class ToDoListRepository
         {
             $query = "UPDATE `list`
                         SET `task`=:task
-                        WHERE `id=:id`";
+                        WHERE `id`=:id";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
