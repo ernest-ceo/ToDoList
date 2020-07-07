@@ -15,7 +15,7 @@ if(isset($_SESSION['userID']))
 }
 else
 {
-    header('location: logowanie.php');
+    header('location: login.php');
     die;
 }
 $content[0] = 'layouts/list.php';
