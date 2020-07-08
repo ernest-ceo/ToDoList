@@ -3,10 +3,10 @@
             <h1>Dane konta</h1>
             <form method="post" class="form">
                 <div class="form-group">
-                    <input type="text" name="firstName" placeholder="Imię">
+                    <input type="text" name="firstName" value="<?php echo $_SESSION['userFirstName']; ?>" placeholder="Imię">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="secondName" placeholder="Nazwisko">
+                    <input type="text" name="secondName" value="<?php echo $_SESSION['userSecondName']; ?>" placeholder="Nazwisko">
                 </div>
                 <div class="form-group">
                     <button type="submit" name="update">Zaktualizuj</button>

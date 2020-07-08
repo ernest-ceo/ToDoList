@@ -129,6 +129,14 @@ class ToDoListRepository
             $stmt->bindValue(':second_name', $second_Name, PDO::PARAM_STR);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
+            $query = "SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `users` WHERE id=:id";
+            $stmt=$this->db->pdo->prepare($query);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['userFirstName']=$userData['first_name'];
+            $_SESSION['userSecondName']=$userData['second_name'];
+            header("Refresh:0; ./userpanel.php");
         }
         catch(PDOException $e)
         {

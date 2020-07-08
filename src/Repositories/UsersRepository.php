@@ -27,8 +27,8 @@ class UsersRepository
             if(password_verify($passwordTrimmed, $userData['password'])){
                 $_SESSION['username']=$userData['email'];
                 $_SESSION['userID']=$userData['id'];
-                //$_SESSION['userFirstName']=$userData['first_name'];
-                //$_SESSION['userSecondName']=$userData['second_name'];
+                $_SESSION['userFirstName']=$userData['first_name'];
+                $_SESSION['userSecondName']=$userData['second_name'];
                 header('location: index.php');
                 die("<h3>Uzytkownik zalogowany pomyslnie</h3>");
             }else{
