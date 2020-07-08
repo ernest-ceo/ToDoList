@@ -1,0 +1,367 @@
+.topnav 
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 10px 10px;
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.topnav button 
+{
+    top: 40px;
+    border: 0;
+    background: none;
+    color: #fff;
+    height: 40px;
+    padding: 5px;
+}
+  
+.topnav-menu 
+{
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    height: calc(100% - 50px);
+    width: 200px;
+    top: 40px;
+    left: -200px;
+    padding: 0;
+    background: #111;
+    opacity: 0.8;
+    transition: 0.4s transform ease-in-out;
+    border-top: #777 1px solid;
+}
+  
+.topnav-menu ul 
+{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 20px);
+    margin: 0 10px;
+    padding: 0;
+    list-style-type: none;
+    align-content: flex-start;
+}
+  
+.topnav-menu ul li 
+{
+    display: flex;
+    height: 30px;
+    flex-basis: 100%;
+    margin-top: 20px;
+    padding-left: 25px;
+    overflow: hidden;
+}
+
+  ul > li a 
+{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+ul > li:hover
+{
+    background-color: grey;
+    color: #111;
+}
+  
+ul > li:hover a
+{
+    color: white;
+    text-decoration: none;
+}
+
+.topnav button:focus ~ .topnav-menu, .topnav-menu:hover 
+{
+    transform: translateX(200px);
+}
+
+.section-task
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 420px;
+    width: 90%;
+    height: 500px;
+    margin: 15px auto;
+    border-radius: 5px;
+    margin-left: 250px;
+}
+
+.add-task
+{
+    width: 100%;
+    background: #111;
+    opacity: 0.8;
+    margin: 0px auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+ 
+.add-task input
+{
+    display: inline-block;
+    align-items: center;
+    width: calc(100% - 55px);
+    height: 45px;
+    margin: 10px auto;
+    font-size: 0.8em;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+.add-task button
+{
+    width: 45px;
+    height: 45px;
+    margin: 0px auto;
+    border: none;
+    outline: none;
+    background: #111;
+    border: 1px solid gray;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.add-task input:hover,.add-task button:hover
+{
+    box-shadow: 0px 0px 20px 1px #333;
+}
+  
+.section-list
+{
+    align-items: center;
+    justify-content: center;
+    max-width: 420px;
+    width: 90%;
+    height: auto;
+    margin: 5px;
+    background: #111;
+    opacity: 0.8;
+    margin: 0px auto;
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: 250px;
+}
+
+.list-item
+{
+    width: 95%;
+    margin: 10px auto;
+    padding: 5px 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.list-item:hover
+{
+    box-shadow: 0px 0px 20px 1px #333;
+}
+
+.list-item h3 
+{
+    display: inline-block;
+    padding-left: 5px;
+    font-size: 0.9em;
+    font-weight: 300;
+    color: #fff;
+}
+
+.list-item small
+{
+    display: block;
+    width: 100%;
+    padding: 5px 0px;
+    color: grey;
+    padding-left: 20px;
+    font-size: 0.7em;
+}
+  
+.edit-task
+{
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    color: #999;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px 5px 10px 0px;
+    margin: 0px 8px;
+    background: none;
+    border: none;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.edit-task:hover
+{
+    color: rgb(38, 97, 43);
+}
+
+.remove-task
+{
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    color: #999;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px 5px 10px 0px;
+    background: none;
+    border: none;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.remove-task:hover
+{
+    color: rgb(129, 63, 57);
+}
+
+#print
+{
+    display: flex;  
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-image: none;
+    top: 50px;
+    right: 30px;
+}
+
+#print button
+{
+    width: auto;
+    height: 45px;
+    margin: 0px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: #111;
+    border: 1px solid gray;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#print button:hover
+{
+    box-shadow: 0px 0px 20px 1px #333;
+}
+
+#print button i
+{
+    margin-right: 10px;
+}
+
+.section-notes
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 10px;
+    background: transparent;
+    max-width: 420px;
+    width: 90%;
+    height: 500px;
+    margin: 15px auto;
+    border-radius: 5px;
+    top: 14px;
+    left: 700px;
+    z-index: 3;
+
+}
+
+.add-notes
+{
+    width: 100%;
+    background: #111;
+    opacity: 0.8;
+    margin: 0px auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+ 
+.add-notes textarea
+{
+    display: inline-block;
+    align-items: center;
+    width: calc(100% - 55px);
+    height: 200px;
+    width: 100%;
+    margin: 10px auto;
+    font-size: 0.8em;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+    flex-wrap: wrap;
+}
+
+
+.add-notes input
+{
+    display: inline-block;
+    align-items: center;
+    width: calc(100% - 55px);
+    height: 45px;
+    margin: 10px auto;
+    font-size: 0.8em;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+.add-notes button
+{
+    width: 45px;
+    height: 45px;
+    margin: 0px auto;
+    border: none;
+    outline: none;
+    background: #111;
+    border: 1px solid gray;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.add-notes button:hover
+{
+    box-shadow: 0px 0px 20px 1px #333;
+}
+
+.add-notes h3 
+{
+    display: inline-block;
+    padding-left: 5px;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: #fff;
+}
