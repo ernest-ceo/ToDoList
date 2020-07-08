@@ -15,9 +15,19 @@
                     <input type="password" name="password" placeholder="Password">
                 </div>
                 <div class="form-group">
+                    <input type="password" name="confirmPassword" placeholder="Confirm password">
+                </div>
+                <div class="form-group">
                     <button type="submit" name="register">Zarejestruj się</button>
                 </div>
             </form>
+            <?php
+            if(isset($_SESSION['info']))
+            {
+                echo $_SESSION['info'];
+                unset($_SESSION['info']);
+            }
+            ?>
         </div>
     </div>
 

@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Database;
 use PDO;
+use PDOException;
 
 class UsersRepository
 {
@@ -15,25 +16,98 @@ class UsersRepository
         $this->connection=$pdo;
     }
 
+    public function checkIfUserExists(string $email)
+    {
+        try
+        {
+            $query = $this->connection->pdo->prepare('SELECT * FROM `users`
+                                                            WHERE `email`=:email');
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            return (bool)($query->fetch());
+        }
+        catch (PDOException $e)
+        {
+            echo "Nie udało się pobrać rekordu z bazy danych!";
+        }
+    }
+
     public function tryToLogIn($email, $password)
     {
         $emailTrimmed = trim($email);
         $passwordTrimmed = trim($password);
-        $stmt = $this->connection->pdo->prepare('SELECT `id`, `email`, `password` FROM `users` WHERE email=:email');
+        $stmt = $this->connection->pdo->prepare('SELECT `id`, `email`, `password`, `verified` FROM `users` WHERE email=:email');
         $stmt->bindValue(':email', $emailTrimmed, PDO::PARAM_STR);
         $stmt->execute();
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($userData){
-            if(password_verify($passwordTrimmed, $userData['password'])){
-                $_SESSION['username']=$userData['email'];
-                $_SESSION['userID']=$userData['id'];
-                header('location: index.php');
-                die("<h3>Uzytkownik zalogowany pomyslnie</h3>");
-            }else{
-                echo "<h3>Nieprawidlowe haslo</h3>";
+        if ($userData) {
+            if (password_verify($passwordTrimmed, $userData['password']) && $userData['verified'] === 1) {
+                $_SESSION['username'] = $userData['email'];
+                $_SESSION['userID'] = $userData['id'];
+                return true;
+            } else {
+                return false;
             }
-        }else{
-            echo "<h3>Nie znaleziono uzytkownika</h3>";
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function checkIfEmailTaken(string $email)
+    {
+        try
+        {
+            $query = $this->connection->pdo->prepare('SELECT * FROM `users`
+                                                                WHERE `email`=:email');
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            return (bool)($query->fetch());
+        }
+        catch (PDOException $e)
+        {
+            echo "Nie udało się pobrać rekordu z bazy danych!";
+        }
+    }
+
+    public function checkIfNewPasswordIsOk(string $newPassword, string $newPasswordValidate)
+    {
+        return (bool) ($newPassword===$newPasswordValidate);
+    }
+
+    public function createNewUser(string $firstName, $secondName, $email, string $hashedPassword, string $vkey)
+    {
+        try
+        {
+            $query = $this->connection->pdo->prepare('INSERT INTO `users` (first_name, second_name, email, password, vkey, verified) 
+                                                                VALUES (:first_name, :second_name, :email, :hashedPassword, :vkey, 0)');
+            $query->bindValue(':first_name', $firstName, PDO::PARAM_STR);
+            $query->bindValue(':second_name', $secondName, PDO::PARAM_STR);
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->bindValue(':hashedPassword', $hashedPassword, PDO::PARAM_STR);
+            $query->bindValue(':vkey', $vkey, PDO::PARAM_STR);
+            $query->execute();
+        }
+        catch (PDOException $e)
+        {
+            echo "Nie udało się zarejestrować użytkownika!";
+        }
+    }
+
+    public function verifyAccount(string $vkey)
+    {
+        try
+        {
+            $query = $this->connection->pdo->prepare('UPDATE `users` 
+                                                                SET `verified`=1
+                                                                WHERE `vkey`=:vkey');
+            $query->bindValue(':vkey', $vkey, PDO::PARAM_STR);
+            return (bool)($query->execute());
+        }
+        catch (PDOException $e)
+        {
+            echo "Nie udało się zweryfikować konta!";
         }
     }
 
