@@ -26,11 +26,11 @@ class Mailer
             );
 //            $this->mailer->SMTPDebug = SMTP::DEBUG_SERVER;
             $this->mailer->isSMTP();
-            $this->mailer->Host = 'smtp.mailtrap.io';
-            $this->mailer->Username = '20f99de4000faa';
-            $this->mailer->Password = '0a882300f33477';
+            $this->mailer->Host = 'smtp.gmail.com';
+            $this->mailer->Username = 'todolistwo6@gmail.com';
+            $this->mailer->Password = 'todolist12345';
             $this->mailer->SMTPAuth = true;
-            $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $this->mailer->SMTPSecure = "tls";
             $this->mailer->Port = 587;
         } catch (Exception $e) {
             echo "Nie udało się poprawnie zainicjować obiektu klasy Mailer.";
@@ -48,6 +48,7 @@ class Mailer
             $this->mailer->Body = $body;
             $this->mailer->AltBody = $body;
             $this->mailer->send();
+            $this->mailer->smtpClose();
             return true;
         } catch (Exception $e) {
             echo "Wiadomość nie została wysłana!";
