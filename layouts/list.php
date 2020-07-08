@@ -52,7 +52,7 @@
           <form action="#" method="POST" autocomplete="off">
               <h3>Notatki</h3>
               <textarea type="text" name="title"></textarea>
-              <input type="text" name="title" placeholder="Dodaj nową notatkę">
+              <input type="text" name="title" placeholder="Dodaj notatkę">
               <button type="submit"><b>&#43;</b></button>
           </form>
     </div>
