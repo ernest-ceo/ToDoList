@@ -7,7 +7,8 @@ if(isset($_SESSION['username']))
     $menu = [
         "index.php" => "Home",
         "list.php" => "Lista",
-        "logout.php" => "Wyloguj"
+        "logout.php" => "Wyloguj",
+        "userpanel.php" => "Panel"
     ];
 
 } else {

@@ -19,7 +19,7 @@ class UsersRepository
     {
         $emailTrimmed = trim($email);
         $passwordTrimmed = trim($password);
-        $stmt = $this->connection->pdo->prepare('SELECT `id`, `email`, `password` FROM `users` WHERE email=:email');
+        $stmt = $this->connection->pdo->prepare('SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `users` WHERE email=:email');
         $stmt->bindValue(':email', $emailTrimmed, PDO::PARAM_STR);
         $stmt->execute();
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -27,6 +27,8 @@ class UsersRepository
             if(password_verify($passwordTrimmed, $userData['password'])){
                 $_SESSION['username']=$userData['email'];
                 $_SESSION['userID']=$userData['id'];
+                //$_SESSION['userFirstName']=$userData['first_name'];
+                //$_SESSION['userSecondName']=$userData['second_name'];
                 header('location: index.php');
                 die("<h3>Uzytkownik zalogowany pomyslnie</h3>");
             }else{

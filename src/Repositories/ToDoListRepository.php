@@ -118,4 +118,22 @@ class ToDoListRepository
             return;
         }
     }
+
+    public function updateData(int $id, string $first_Name, string $second_Name)
+    {
+        try
+        {
+            $query = "UPDATE users SET first_name=:first_name, second_name=:second_name WHERE id=:id";
+            $stmt=$this->db->pdo->prepare($query);
+            $stmt->bindValue(':first_name', $first_Name, PDO::PARAM_STR);
+            $stmt->bindValue(':second_name', $second_Name, PDO::PARAM_STR);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+        catch(PDOException $e)
+        {
+            echo "Nie udało sie zaktualizować danych";
+            return;
+        }
+    }
 }
