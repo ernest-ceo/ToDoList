@@ -3,10 +3,10 @@
     <sidebar class="topnav-menu">
         <ul>
             <button><i class="fa fa-bars" style="scale: 1.5"></i></button>
-            <li><a href="#">Dziś</a></li>
-            <li><a href="#">Jutro</a></li>
-            <li><a href="#">Ten tydzień</a></li>
-            <li><a href="#">Kiedyś</a></li>
+            <li><a href="#">Wszystkie</a></li>
+            <li><a href="#">Dom</a></li>
+            <li><a href="#">Praca</a></li>
+            <li><a href="#">Rozrywka</a></li>
         </ul>
     </sidebar>
 </nav>
@@ -26,8 +26,14 @@ if(isset($_SESSION['info']))
 <div class="section-task">
     <div class="add-task">
           <form action="add.php" method="post" autocomplete="off">
-              <input type="text" name="task" placeholder="Dodaj nowe zadanie" required>
-              <button type="submit"><b>&#43;</b></button>
+            <input class="input-task" type="text" name="task" placeholder="Dodaj nowe zadanie" required>
+            <button type="submit"><b>&#43;</b></button>
+            <div class="radio-group">
+                Wybierz kategorię:
+                <input type="radio" name="category" id="dom">Dom
+                <input type="radio" name="category" id="praca">Praca
+                <input type="radio" name="category" id="rozrywka">Rozrywka
+            </div>
           </form>
     </div>
 </div>
