@@ -119,14 +119,14 @@ class ToDoListRepository
         }
     }
 
-    public function updateData(int $id, string $first_Name, string $second_Name)
+    public function updateData(int $id, string $firstName, string $secondName)
     {
         try
         {
             $query = "UPDATE users SET first_name=:first_name, second_name=:second_name WHERE id=:id";
             $stmt=$this->db->pdo->prepare($query);
-            $stmt->bindValue(':first_name', $first_Name, PDO::PARAM_STR);
-            $stmt->bindValue(':second_name', $second_Name, PDO::PARAM_STR);
+            $stmt->bindValue(':first_name', $firstName, PDO::PARAM_STR);
+            $stmt->bindValue(':second_name', $secondName, PDO::PARAM_STR);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $query = "SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `users` WHERE id=:id";
