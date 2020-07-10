@@ -30,9 +30,12 @@ if(isset($_SESSION['info']))
             <button type="submit"><b>&#43;</b></button>
             <div class="radio-group">
                 Wybierz kategorię:
-                <input type="radio" name="category" id="dom">Dom
-                <input type="radio" name="category" id="praca">Praca
-                <input type="radio" name="category" id="rozrywka">Rozrywka
+                <label for="dom">Dom</label>
+                <input type="radio" name="categoryID" id="dom"  value="1" required>
+                <label for="praca">Praca</label>
+                <input type="radio" name="categoryID" id="praca" value="2">Praca
+                <label for="rozrywka">Rozrywka</label>
+                <input type="radio" name="categoryID" id="rozrywka" value="3">Rozrywka
             </div>
           </form>
     </div>

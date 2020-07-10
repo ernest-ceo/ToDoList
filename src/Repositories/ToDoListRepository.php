@@ -62,15 +62,16 @@ class ToDoListRepository
         }
     }
 
-    public function addNewTask(string $task, int $userID)
+    public function addNewTask(string $task, int $categoryID, int $userID)
     {
         try
         {
-            $query = "INSERT INTO `list` (user_id, task)
-                        VALUES (:user_id, :task)";
+            $query = "INSERT INTO `list` (user_id, task, category_id)
+                        VALUES (:user_id, :task, :category_id)";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
             $stmt->bindValue(':user_id', $userID, PDO::PARAM_INT);
+            $stmt->bindValue(':category_id', $categoryID, PDO::PARAM_INT);
             $result = $stmt->execute();
             return (bool)($result);
         }

@@ -12,16 +12,11 @@ if(!isset($_SESSION['username']))
     header('location: login.php');
     die;
 }
-if(isset($_POST['add']))
-{
-    $content[0]= 'layouts/add.php';
-}
-if(isset($_POST['task'])&&$_POST['task']!=="")
+if(isset($_POST['categoryID'])&&isset($_POST['task'])&&$_POST['task']!=="")
 {
     $pdo = new Database(require_once ('config/database.php'));
     $listRepository = new ToDoListRepository($pdo);
-    $listRepository->addNewTask($_POST['task'], $_SESSION['userID']);
+    $listRepository->addNewTask($_POST['task'], (int)$_POST['categoryID'], $_SESSION['userID']);
     header('location: list.php');
     die;
 }
-include_once 'layouts/main.php';
