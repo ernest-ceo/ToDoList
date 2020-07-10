@@ -16,7 +16,13 @@
         <i class="fa fa-print" style="scale: 1.5"></i>Drukuj
     </button>
 </form>
-
+<?php
+if(isset($_SESSION['info']))
+{
+    echo $_SESSION['info'];
+    unset($_SESSION['info']);
+}
+?>
 <div class="section-task">
     <div class="add-task">
           <form action="add.php" method="post" autocomplete="off">

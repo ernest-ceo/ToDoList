@@ -12,6 +12,13 @@
                     <button type="submit" name="login">Zaloguj się</button>
                 </div>
             </form>
+            <?php
+            if(isset($_SESSION['info']))
+            {
+                echo $_SESSION['info'];
+                unset($_SESSION['info']);
+            }
+            ?>
         </div>
     </div>
 

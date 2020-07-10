@@ -7,5 +7,12 @@
                 <button type="submit" name="taskID" value="<?=$taskToDisplay['id']?>" class="btn btn-secondary">Zatwierdź zmianę</button>
             </div>
         </form>
+        <?php
+        if(isset($_SESSION['info']))
+        {
+            echo $_SESSION['info'];
+            unset($_SESSION['info']);
+        }
+        ?>
     </div>
 </div>
