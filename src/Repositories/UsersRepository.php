@@ -36,7 +36,7 @@ class UsersRepository
     {
         $emailTrimmed = trim($email);
         $passwordTrimmed = trim($password);
-        $stmt = $this->connection->pdo->prepare('SELECT `id`, `email`, `password`, `verified` FROM `users` WHERE email=:email');
+        $stmt = $this->connection->pdo->prepare('SELECT `id`, `email`, `password`, `verified`, `first_name`, `second_name` FROM `users` WHERE email=:email');
         $stmt->bindValue(':email', $emailTrimmed, PDO::PARAM_STR);
         $stmt->execute();
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -44,6 +44,8 @@ class UsersRepository
             if (password_verify($passwordTrimmed, $userData['password']) && $userData['verified'] === 1) {
                 $_SESSION['username'] = $userData['email'];
                 $_SESSION['userID'] = $userData['id'];
+                $_SESSION['userFirstName']=$userData['first_name'];
+                $_SESSION['userSecondName']=$userData['second_name'];
                 return true;
             } else {
                 return false;
@@ -111,13 +113,13 @@ class UsersRepository
         }
     }
 
-    public function registration($first_Name, $second_Name, $email, $password)
+    public function registration($firstName, $secondName, $email, $password)
     {
         $hashPassword = password_hash($password,PASSWORD_BCRYPT);
 
         $sth = $this->connection->pdo->prepare('INSERT INTO users (first_name, second_name, email, password) VALUE (:first_name,:second_name,:email,:password)');
-        $sth->bindValue(':first_name', $first_Name, PDO::PARAM_STR);
-        $sth->bindValue(':second_name', $second_Name, PDO::PARAM_STR);
+        $sth->bindValue(':first_name', $firstName, PDO::PARAM_STR);
+        $sth->bindValue(':second_name', $secondName, PDO::PARAM_STR);
         $sth->bindValue(':email', $email, PDO::PARAM_STR);
         $sth->bindValue(':password', $hashPassword, PDO::PARAM_STR);
         $sth->execute();

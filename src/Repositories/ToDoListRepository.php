@@ -118,4 +118,62 @@ class ToDoListRepository
             return;
         }
     }
+
+    public function updateData(int $id, string $firstName, string $secondName)
+    {
+        try
+        {
+            $query = "UPDATE users SET first_name=:first_name, second_name=:second_name WHERE id=:id";
+            $stmt=$this->db->pdo->prepare($query);
+            $stmt->bindValue(':first_name', $firstName, PDO::PARAM_STR);
+            $stmt->bindValue(':second_name', $secondName, PDO::PARAM_STR);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $query = "SELECT `id`, `first_name`, `second_name`, `email`, `password` FROM `users` WHERE id=:id";
+            $stmt=$this->db->pdo->prepare($query);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['userFirstName']=$userData['first_name'];
+            $_SESSION['userSecondName']=$userData['second_name'];
+            header("Refresh:0; ./userpanel.php");
+        }
+        catch(PDOException $e)
+        {
+            echo "Nie udało sie zaktualizować danych";
+            return;
+        }
+    }
+
+    public function updatePassword(int $id, string $passwordOld,string $passwordNew, string $passwordNewRepeated)
+    {
+        try
+        {
+            if($passwordNew===$passwordNewRepeated){
+                $stmt = $this->db->pdo->prepare('SELECT `password` FROM `users` WHERE id=:id');
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                $stmt->execute();
+                $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+                $passwordOldHash = $userData['password'];
+                if(password_verify($passwordOld, $passwordOldHash)){
+                    $passwordNewHash = password_hash($passwordNew,PASSWORD_BCRYPT);
+                    $query = "UPDATE users SET password=:passwordNewHash WHERE id=:id";
+                    $stmt=$this->db->pdo->prepare($query);
+                    $stmt->bindValue(':passwordNewHash', $passwordNewHash, PDO::PARAM_STR);
+                    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                    $stmt->execute();
+                    echo('Hasło zostało zmienione');
+                }else{
+                    echo('Podano nieprawidłowe hasło');
+                }
+            }else{
+                echo('Podane hasła nie są jednakowe');
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo "Nie udało sie zmienić hasła";
+            return;
+        }
+    }
 }
