@@ -37,6 +37,10 @@ if(isset($_POST['login']))
         }
     }
 
+if(isset($_POST['forgotPassword'])){
+    header('location: forgotpassword.php');
+}
+
 $content = array();
 $content[0] = "./layouts/login.php";
 include_once "./layouts/main.php";
