@@ -7,7 +7,7 @@ html
 }
 
 body 
- {
+{
     background-color: grey;
     color: #fff;
     display: flex;
@@ -22,16 +22,29 @@ body
     margin: 0 !important;
     padding: 0;
     color: #fff;
- }
+}
 
+.nav .logo
+{
+    position: absolute;
+    justify-content: left;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+}
 
 .nav
 {
+    position: fixed;
+    display: flex;
     width: 100%;
     height: 40px;
-    padding: 5px 0;
     background-color: #000;
+    justify-content: right;
     text-align: center;
+    justify-items: center;
+    right: 0;
+    padding: 0;
     opacity: 0.8;
 }
 
@@ -41,10 +54,15 @@ body
     flex-direction: column;
     background-size: cover;
     background-position: center;
+    background-image: url('../img/img02.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 20px;
 }
 
 #content h1
@@ -78,35 +96,45 @@ body
     border: #000 1px solid;
 }
 
-ol{
+.nav ol
+{
+    position: absolute;
+    justify-content: right;
+    float: right;
+    position: absolute;
+    margin-right: 0px;
     padding: 0;
     margin: 0;
+    right: 0px;
     list-style-type: none;
     font-size: 18px;
-    height: 30px;
+    height: 40px;
+    text-align: center;
 }
 
-ol a
+.nav ol a
 {
     color: white;
     text-decoration: none;
-    display: block;
+    display: inline-block;
+    margin-top: 5px;
 }
 
-ol > li
+.nav ol > li
 {
-    float: left;
     width: 100px;
-    height: 35px;
+    height: 40px;
+    display: inline-block;
+    right: 10px;
 }
 
-ol > li:hover
+.nav ol > li:hover
 {
     background-color: grey;
     color: #000;
 }
 
-ol > li:hover a
+.nav ol > li:hover a
 {
     color: white;
     text-decoration: none;
@@ -119,7 +147,75 @@ ol > li:hover a
     font-size: 13px;
 }
 
-.wrapper {
+.section {
+    color:#000;
+    background-attachment: fixed;
+    max-width: 100vw;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+#section-1
+{
+    display: flex;
+    background:#ebebeb;
+}
+
+#section-1 div
+{
+    padding:20px;
+}
+
+.s1-box-2
+{
+    min-width: 300px;
+    position: center;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+#section-2
+{
+    display: flex;
+    background:#f4f4f4;
+}
+
+#section-2 div
+{
+    padding:20px;
+}
+
+.s2-box-1
+{
+    
+}
+
+#section-3
+{
+    display:flex;
+}
+
+#section-3 div
+{
+    padding:20px;
+}
+
+#section-3 .box-1, #section-3 .box-3
+{
+    min-width: 300px;
+    background:#ebebeb;
+}
+
+#section-3 .box-2
+{
+    min-width: 300px;
+    background:#f4f4f4;
+}
+
+.wrapper
+{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,7 +223,7 @@ ol > li:hover a
     height: auto;
 }
 
-.form-holder {
+.form-holder{
     background: #000;
     width: 420px;
     max-width: 90%;

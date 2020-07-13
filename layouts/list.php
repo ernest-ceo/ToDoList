@@ -2,7 +2,6 @@
     <button><i class="fa fa-bars" style="scale: 1.5"></i></button>
     <sidebar class="topnav-menu">
         <ul>
-            <button><i class="fa fa-bars" style="scale: 1.5"></i></button>
             <li><a href="#">Wszystkie</a></li>
             <li><a href="#">Dom</a></li>
             <li><a href="#">Praca</a></li>
