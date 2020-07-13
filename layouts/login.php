@@ -12,6 +12,11 @@
                     <button type="submit" name="login">Zaloguj się</button>
                 </div>
             </form>
+            <form method="post" class="form">
+                <div class="form-group">
+                    <button type="submit" name="forgotPassword">Zapomniałem hasła</button>
+                </div>
+            </form>
             <?php
             if(isset($_SESSION['info']))
             {
