@@ -3,10 +3,10 @@
     <sidebar class="topnav-menu">
         <ul>
             <button><i class="fa fa-bars" style="scale: 1.5"></i></button>
-            <li><a href="#">Wszystkie</a></li>
-            <li><a href="#">Dom</a></li>
-            <li><a href="#">Praca</a></li>
-            <li><a href="#">Rozrywka</a></li>
+            <li><a href="<?=ROOT_URL."list.php"?>">Wszystkie</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=home"?>">Dom</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=work"?>">Praca</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=entertainment"?>">Rozrywka</a></li>
         </ul>
     </sidebar>
 </nav>
@@ -29,19 +29,40 @@ if(isset($_SESSION['info']))
             <input class="input-task" type="text" name="task" placeholder="Dodaj nowe zadanie" required>
             <button type="submit"><b>&#43;</b></button>
             <div class="radio-group">
-                Wybierz kategorię:
+                Wybierz kategorię:&nbsp
                 <label for="dom">Dom</label>
                 <input type="radio" name="categoryID" id="dom"  value="1" required>
                 <label for="praca">Praca</label>
-                <input type="radio" name="categoryID" id="praca" value="2">Praca
+                <input type="radio" name="categoryID" id="praca" value="2">
                 <label for="rozrywka">Rozrywka</label>
-                <input type="radio" name="categoryID" id="rozrywka" value="3">Rozrywka
+                <input type="radio" name="categoryID" id="rozrywka" value="3">
             </div>
           </form>
     </div>
 </div>
 
 <div class="section-list">
+    <?php
+        if(isset($_GET['sortBy'])&&$_GET['sortBy']==="task")
+        {
+            ?>
+           <a href="<?=ROOT_URL."list.php?sortBy=date"?>">Data</a>
+    <?php
+        }
+    elseif(isset($_GET['sortBy'])&&$_GET['sortBy']==="date")
+        {
+    ?>
+            <a href="<?=ROOT_URL."list.php?sortBy=task"?>">Nazwa</a>
+    <?php
+        }
+    else
+    {
+        ?>
+        <a href="<?=ROOT_URL."list.php?sortBy=date"?>">Data</a>&nbsp<a href="<?=ROOT_URL."list.php?sortBy=task"?>">Nazwa</a>
+    <?php
+    }
+    ?>
+
     <?php foreach ($listArray as $item) { ?>
         <div class="list-item">
             <form action="delete.php" method="post">
@@ -54,7 +75,6 @@ if(isset($_SESSION['info']))
                     <i class="fa fa-edit"></i></i>
                 </button>
             </form>
-            <input type="checkbox"/>
             <h3><?=$item['task']?></h3>
             <br>
             <small>Dodano: <?=$item['date']?></small>

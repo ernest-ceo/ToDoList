@@ -177,4 +177,29 @@ class ToDoListRepository
             return;
         }
     }
+
+    public function getAllByCategory($userID, $category, $orderBy="list.id")
+    {
+        try
+        {
+            $query = "SELECT * FROM `list`, `categories`
+                       WHERE list.user_id=:userID AND categories.name= $category AND list.category_id = categories.id
+                       ORDER BY ".$orderBy;
+            $stmt=$this->db->pdo->prepare($query);
+            $stmt->bindValue(':userID', $userID, PDO::PARAM_INT);
+//            $stmt->bindValue(':categoryName', $category, PDO::PARAM_STR);
+            $result = $stmt->execute();
+            if($result===true)
+            {
+                $this->list=$stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $this->list;
+            } else {
+                return;
+            }
+            $stmt->closeCursor();
+        }
+        catch (PDOException $e) {
+            echo "Nie udało się odczytać danych z bazy.";
+        }
+    }
 }
