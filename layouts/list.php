@@ -22,6 +22,11 @@ if(isset($_SESSION['info']))
     unset($_SESSION['info']);
 }
 ?>
+
+<div class="hello">
+    <h3>Witaj <?= $_SESSION['userFirstName'];?>!</h3>
+</div>
+
 <div class="section-task">
     <div class="add-task">
           <form action="add.php" method="post" autocomplete="off">
@@ -29,12 +34,12 @@ if(isset($_SESSION['info']))
             <button type="submit"><b>&#43;</b></button>
             <div class="radio-group">
                 Wybierz kategorię:
-                <label for="dom">Dom</label>
                 <input type="radio" name="categoryID" id="dom"  value="1" required>
+                <label for="dom">Dom</label>
+                <input type="radio" name="categoryID" id="praca" value="2">
                 <label for="praca">Praca</label>
-                <input type="radio" name="categoryID" id="praca" value="2">Praca
+                <input type="radio" name="categoryID" id="rozrywka" value="3">
                 <label for="rozrywka">Rozrywka</label>
-                <input type="radio" name="categoryID" id="rozrywka" value="3">Rozrywka
             </div>
           </form>
     </div>

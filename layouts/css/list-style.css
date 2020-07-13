@@ -89,20 +89,33 @@ ul > li:hover a
     transform: translateX(200px);
 }
 
+.hello
+{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20px;
+    left: 250px;
+    max-width: 420px;
+    height: 100px;
+    margin: 15px auto;
+    border-radius: 5px;
+}
+
 .section-task
 {
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 80px;
+    top: 120px;
     left: 250px;
     max-width: 420px;
     width: 90%;
     height: 100px;
     margin: 15px auto;
     border-radius: 5px;
-
 }
 
 .add-task
@@ -174,7 +187,7 @@ ul > li:hover a
 .section-list
 {
     position: absolute;
-    top: 250px;
+    top: 270px;
     left: 250px;
     align-items: center;
     justify-content: center;

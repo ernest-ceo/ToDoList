@@ -187,9 +187,9 @@ body
     padding:20px;
 }
 
-.s2-box-1
+.s2-box-1 img
 {
-    
+    height: 350px;
 }
 
 #section-3
@@ -221,15 +221,19 @@ body
     justify-content: center;
     min-height: 88vh;
     height: auto;
+    margin-top: 40px;
+    padding-top: 40px;
 }
 
-.form-holder{
+.form-holder
+{
     background: #000;
     width: 420px;
     max-width: 90%;
-    padding: 30px 0px;
+    padding: 15px 0px;
     opacity: 0.7;
     border-radius: 10px;
+    margin: 30px;
 }
 
 .form-holder h1 {
@@ -284,12 +288,12 @@ body
 
 .form-group input:focus{
     background: #444;
-    border-color: #39a165;
+    border-color: #3DB58B;
 }
 
 .form-group input:hover {
     background: #444;
-    border-color: #39a165;
+    border-color: #3DB58B;
 
 }
 
