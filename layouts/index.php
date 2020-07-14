@@ -7,7 +7,13 @@ display: block;
 <div id="content">
     <h1>Witaj!</h1>
     <h2>Zaplanuj z nami swój dzień.</h2>
-    <a href="registration.php" class="button">Dołącz do nas</a>
+    <?php
+    if(isset($_SESSION['username'])){
+        echo"<a href=\"list.php\" class=\"button\">Moja lista zadań</a>";
+    }else{
+        echo"<a href=\"registration.php\" class=\"button\">Dołącz do nas</a>";
+    }
+    ?>
 </div>
 
 <div class="section">
