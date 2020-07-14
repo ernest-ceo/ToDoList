@@ -62,7 +62,7 @@ if(isset($_SESSION['info']))
             </form>
             <form action="edit.php" method="post">
                 <button name="edit" class="edit-task" value="<?=$item['id']?>">
-                    <i class="fa fa-edit"></i></i>
+                    <i class="fa fa-edit"></i>
                 </button>
             </form>
             <h3><?=$item['task']?></h3>
