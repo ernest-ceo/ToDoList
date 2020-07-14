@@ -7,14 +7,14 @@ if(isset($_SESSION['username']))
     $menu = [
         "index.php" => "Home",
         "list.php" => "Lista",
-        "logout.php" => "Wyloguj",
-        "userpanel.php" => "Panel"
+        "userpanel.php" => "Panel",
+        "logout.php" => "Wyloguj"
     ];
 
 } else {
     $menu = [
         "index.php" => "Home",
-        "login.php" => "Logowanie",
-        "registration.php" => "Rejestracja"
+        "registration.php" => "Rejestracja",
+        "login.php" => "Logowanie"
     ];
 }
