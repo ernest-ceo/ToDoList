@@ -2,10 +2,10 @@
     <button><i class="fa fa-bars" style="scale: 1.5"></i></button>
     <sidebar class="topnav-menu">
         <ul>
-            <li><a href="#">Wszystkie</a></li>
-            <li><a href="#">Dom</a></li>
-            <li><a href="#">Praca</a></li>
-            <li><a href="#">Rozrywka</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=all"?>">Wszystkie</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=home"?>">Dom</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=work"?>">Praca</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=entertainment"?>">Rozrywka</a></li>
         </ul>
     </sidebar>
 </nav>
@@ -33,6 +33,7 @@ if(isset($_SESSION['info']))
             <input class="input-task" type="text" name="task" placeholder="Dodaj nowe zadanie" required>
             <button type="submit"><b>&#43;</b></button>
             <div class="radio-group">
+
                 Wybierz kategorię:
                 <input type="radio" name="categoryID" id="dom"  value="1" required>
                 <label for="dom">Dom</label>
@@ -46,6 +47,12 @@ if(isset($_SESSION['info']))
 </div>
 
 <div class="section-list">
+
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=ASC"?>">Data ^</a>&nbsp
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=ASC"?>">Nazwa ^</a>&nbsp
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=DESC"?>">Data v</a>&nbsp
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=DESC"?>">Nazwa v</a>
+
     <?php foreach ($listArray as $item) { ?>
         <div class="list-item">
             <form action="delete.php" method="post">
@@ -58,7 +65,6 @@ if(isset($_SESSION['info']))
                     <i class="fa fa-edit"></i></i>
                 </button>
             </form>
-            <input type="checkbox"/>
             <h3><?=$item['task']?></h3>
             <br>
             <small>Dodano: <?=$item['date']?></small>
