@@ -310,3 +310,10 @@ body
 .form-group a:hover {
     color: #444;
 }
+
+.statement {
+    background-color: red;
+    text-align: center;
+    margin: 10px 30px 5px 30px;
+    border-radius: 10px;
+}
