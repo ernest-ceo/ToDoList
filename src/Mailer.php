@@ -55,4 +55,23 @@ class Mailer
             return false;
         }
     }
+
+    public function sendPasswordResetMessage(string $receiver, string $resetKey)
+    {
+        try {
+            $this->mailer->setFrom('todolist@gmail.com', 'ToDoList');
+            $this->mailer->addAddress($receiver);
+            $this->mailer->isHTML(true);
+            $this->mailer->Subject = 'Reset hasla';
+            $body = '<a href="http://localhost/ToDoList/resetpassword.php?rkey=' . $resetKey . '">Reset hasła</a>';
+            $this->mailer->Body = $body;
+            $this->mailer->AltBody = $body;
+            $this->mailer->send();
+            $this->mailer->smtpClose();
+            return true;
+        } catch (Exception $e) {
+            echo "Wiadomość nie została wysłana!";
+            return false;
+        }
+    }
 }

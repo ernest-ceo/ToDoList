@@ -127,4 +127,41 @@ class UsersRepository
         die('Rejestracja pomyslna!');
 
     }
+
+    public function saveResetKey(string $email, string $rkey)
+    {
+        try
+        {
+            $stmt = $this->connection->pdo->prepare('UPDATE users SET rkey=:rkey WHERE email=:email;');
+            $stmt->bindValue(':rkey', $rkey, PDO::PARAM_STR);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+        }
+        catch(PDOException $e)
+        {
+            echo "Nie udało sie wysłac emaila";
+            return;
+        }
+    }
+
+    public function resetPassword(string $rkey, string $password, string $passwordRepeated)
+    {
+        try
+        {
+            if($password===$passwordRepeated){
+                $stmt = $this->connection->pdo->prepare('UPDATE users SET password=:passwordNew WHERE rkey=:rkey;');
+                $passwordHash = password_hash($password,PASSWORD_BCRYPT);
+                $stmt->bindValue(':passwordNew', $passwordHash, PDO::PARAM_STR);
+                $stmt->bindValue(':rkey', $rkey, PDO::PARAM_STR);
+                $stmt->execute();
+            }else{
+                $_SESSION['info']="Podane hasła nie są jednakowe.";
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo "Nie udało sie zresetować hasła";
+            return;
+        }
+    }
 }
