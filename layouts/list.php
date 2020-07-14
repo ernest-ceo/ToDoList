@@ -3,7 +3,7 @@
     <sidebar class="topnav-menu">
         <ul>
             <button><i class="fa fa-bars" style="scale: 1.5"></i></button>
-            <li><a href="<?=ROOT_URL."list.php"?>">Wszystkie</a></li>
+            <li><a href="<?=ROOT_URL."list.php?category=all"?>">Wszystkie</a></li>
             <li><a href="<?=ROOT_URL."list.php?category=home"?>">Dom</a></li>
             <li><a href="<?=ROOT_URL."list.php?category=work"?>">Praca</a></li>
             <li><a href="<?=ROOT_URL."list.php?category=entertainment"?>">Rozrywka</a></li>
@@ -42,26 +42,11 @@ if(isset($_SESSION['info']))
 </div>
 
 <div class="section-list">
-    <?php
-        if(isset($_GET['sortBy'])&&$_GET['sortBy']==="task")
-        {
-            ?>
-           <a href="<?=ROOT_URL."list.php?sortBy=date"?>">Data</a>
-    <?php
-        }
-    elseif(isset($_GET['sortBy'])&&$_GET['sortBy']==="date")
-        {
-    ?>
-            <a href="<?=ROOT_URL."list.php?sortBy=task"?>">Nazwa</a>
-    <?php
-        }
-    else
-    {
-        ?>
-        <a href="<?=ROOT_URL."list.php?sortBy=date"?>">Data</a>&nbsp<a href="<?=ROOT_URL."list.php?sortBy=task"?>">Nazwa</a>
-    <?php
-    }
-    ?>
+
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=ASC"?>">Data ^</a>&nbsp
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=ASC"?>">Nazwa ^</a>&nbsp
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=DESC"?>">Data v</a>&nbsp
+        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=DESC"?>">Nazwa v</a>
 
     <?php foreach ($listArray as $item) { ?>
         <div class="list-item">

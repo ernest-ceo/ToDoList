@@ -178,16 +178,25 @@ class ToDoListRepository
         }
     }
 
-    public function getAllByCategory($userID, $category, $orderBy="list.id")
+    public function getAllByCategory($userID, $category, $sortBy="list.id", $orderBy="")
     {
         try
         {
-            $query = "SELECT * FROM `list`, `categories`
+            if($category==="'all'")
+            {
+                $query = "SELECT * FROM `list`, `categories`
+                       WHERE list.user_id=:userID AND list.category_id = categories.id
+                       ORDER BY $sortBy $orderBy";
+            }
+            else
+            {
+
+                $query = "SELECT * FROM `list`, `categories`
                        WHERE list.user_id=:userID AND categories.name= $category AND list.category_id = categories.id
-                       ORDER BY ".$orderBy;
+                       ORDER BY ".$sortBy." ".$orderBy;
+            }
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':userID', $userID, PDO::PARAM_INT);
-//            $stmt->bindValue(':categoryName', $category, PDO::PARAM_STR);
             $result = $stmt->execute();
             if($result===true)
             {
