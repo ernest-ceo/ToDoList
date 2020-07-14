@@ -23,7 +23,6 @@ if(isset($_POST['login']))
             if($users->tryToLogIn($_POST['email'], $_POST['password']))
             {
                 header('location: index.php');
-                $_SESSION['info']="Zalogowano pomyślnie.";
                 die;
             } else {
                 $_SESSION['info'] = "Wprowadzono niepoprawne dane lub konto nie zostało aktywowane! Spróbuj ponownie lub aktywuj konto.";

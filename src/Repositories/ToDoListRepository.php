@@ -165,15 +165,15 @@ class ToDoListRepository
                     $stmt->execute();
                     echo('Hasło zostało zmienione');
                 }else{
-                    echo('Podano nieprawidłowe hasło');
+                    $_SESSION['info'] = "Podano błędne hasło";
                 }
             }else{
-                echo('Podane hasła nie są jednakowe');
+                $_SESSION['info'] = "Podane hasła nie są jednakowe";
             }
         }
         catch(PDOException $e)
         {
-            echo "Nie udało sie zmienić hasła";
+            echo "Nie udało sie zaktualizować hasła";
             return;
         }
     }

@@ -30,6 +30,18 @@
                     <button type="submit" name="updatePassword">Zmień hasło</button>
                 </div>
             </form>
+            <div>
+
+            </div>
+            <div class="statement">
+                <?php
+                if(isset($_SESSION['info']))
+                {
+                    echo $_SESSION['info'];
+                    unset($_SESSION['info']);
+                }
+                ?>
+            </div>
         </div>
     </div>
 

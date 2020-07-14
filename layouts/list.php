@@ -15,13 +15,15 @@
         <i class="fa fa-print" style="scale: 1.5"></i>Drukuj
     </button>
 </form>
-<?php
-if(isset($_SESSION['info']))
-{
-    echo $_SESSION['info'];
-    unset($_SESSION['info']);
-}
-?>
+<div class="statement">
+    <?php
+    if(isset($_SESSION['info']))
+    {
+        echo $_SESSION['info'];
+        unset($_SESSION['info']);
+    }
+    ?>
+</div>
 
 <div class="hello">
     <h3>Witaj <?= $_SESSION['userFirstName'];?>!</h3>

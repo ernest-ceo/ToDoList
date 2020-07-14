@@ -21,13 +21,15 @@
                     <button type="submit" name="register">Zarejestruj się</button>
                 </div>
             </form>
-            <?php
-            if(isset($_SESSION['info']))
-            {
-                echo $_SESSION['info'];
-                unset($_SESSION['info']);
-            }
-            ?>
+            <div class="statement">
+                <?php
+                if(isset($_SESSION['info']))
+                {
+                    echo $_SESSION['info'];
+                    unset($_SESSION['info']);
+                }
+                ?>
+            </div>
         </div>
     </div>
 
