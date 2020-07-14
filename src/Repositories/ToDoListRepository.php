@@ -184,14 +184,14 @@ class ToDoListRepository
         {
             if($category==="'all'")
             {
-                $query = "SELECT * FROM `list`, `categories`
+                $query = "SELECT list.id, list.task, list.category_id, list.user_id, list.date FROM `list`, `categories`
                        WHERE list.user_id=:userID AND list.category_id = categories.id
                        ORDER BY $sortBy $orderBy";
             }
             else
             {
 
-                $query = "SELECT * FROM `list`, `categories`
+                $query = "SELECT list.id, list.task, list.category_id, list.user_id, list.date FROM `list`, `categories`
                        WHERE list.user_id=:userID AND categories.name= $category AND list.category_id = categories.id
                        ORDER BY ".$sortBy." ".$orderBy;
             }
