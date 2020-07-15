@@ -17,13 +17,16 @@ elseif(isset($_POST['edit']))
     $pdo = new Database(require_once ('config/database.php'));
     $listRepository = new ToDoListRepository($pdo);
     $taskToDisplay = $listRepository->getTaskByID($_POST['edit']);
+    $dateToDisplay = $listRepository->getDateByID($_POST['edit']);
+    $dataConverter = strtotime($dateToDisplay['date']);
+    $newDate = date('Y-m-d\TH:i', $dataConverter);
     $content[0]= 'layouts/edit.php';
 }
-elseif(isset($_POST['task'])&&$_POST['task']!=="")
+elseif(isset($_POST['task'])&&$_POST['task']!==""&&$_POST['date']&&$_POST['date']!=="")
 {
     $pdo = new Database(require_once ('config/database.php'));
     $listRepository = new ToDoListRepository($pdo);
-    $listRepository->updateTask($_POST['task'], (int)$_POST['taskID']);
+    $listRepository->updateTask($_POST['task'], (int)$_POST['taskID'], $_POST['date']);
     header('location: list.php');
     die;
 }

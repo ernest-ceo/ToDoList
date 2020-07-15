@@ -62,15 +62,39 @@ class ToDoListRepository
         }
     }
 
-    public function addNewTask(string $task, int $categoryID, int $userID)
+    public function getDateByID($id)
     {
         try
         {
-            $query = "INSERT INTO `list` (user_id, task, category_id)
-                        VALUES (:user_id, :task, :category_id)";
+            $query = 'SELECT `id`, `date` FROM `list`
+                       WHERE `id`=:id';
+            $stmt=$this->db->pdo->prepare($query);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $result = $stmt->execute();
+            if($result===true)
+            {
+                $this->list=$stmt->fetch();
+                return $this->list;
+            } else {
+                return;
+            }
+            $stmt->closeCursor();
+        }
+        catch (PDOException $e) {
+            echo "Nie udało się odczytać danych z bazy.";
+        }
+    }
+
+    public function addNewTask(string $task, int $categoryID, int $userID, $dateTimeAdd)
+    {
+        try
+        {
+            $query = "INSERT INTO `list` (user_id, task, date, category_id)
+                        VALUES (:user_id, :task, :date_time_add, :category_id)";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
             $stmt->bindValue(':user_id', $userID, PDO::PARAM_INT);
+            $stmt->bindValue(':date_time_add', $dateTimeAdd, PDO::PARAM_INT);
             $stmt->bindValue(':category_id', $categoryID, PDO::PARAM_INT);
             $result = $stmt->execute();
             return (bool)($result);
@@ -82,15 +106,16 @@ class ToDoListRepository
         }
     }
 
-    public function updateTask(string $task, int $id)
+    public function updateTask(string $task, int $id, $date)
     {
         try
         {
             $query = "UPDATE `list`
-                        SET `task`=:task
+                        SET `task`=:task, `date`=:date
                         WHERE `id`=:id";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
+            $stmt->bindValue(':date', $date, PDO::PARAM_STR);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $result=$stmt->execute();
             return (bool)($result);

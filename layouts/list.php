@@ -33,6 +33,7 @@
     <div class="add-task">
           <form action="add.php" method="post" autocomplete="off">
             <input class="input-task" type="text" name="task" placeholder="Dodaj nowe zadanie" required>
+              <input type="datetime-local" name="dateTimeAdd" required>
             <button type="submit"><b>&#43;</b></button>
             <div class="radio-group">
 
@@ -69,7 +70,18 @@
             </form>
             <h3><?=$item['task']?></h3>
             <br>
-            <small>Dodano: <?=$item['date']?></small>
+            <small><?=$item['date']?></small>
+            <small>Kategoria: <?php switch($item['category_id']){
+                case 1:
+                    echo "Dom";
+                    break;
+                    case 2:
+                        echo "Praca";
+                        break;
+                        case 3:
+                        echo "Rozrywka";
+                        break;
+                }?></small>
         </div>
     <?php } ?>
 </div>

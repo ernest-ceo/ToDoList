@@ -1,20 +1,21 @@
-<div calss="row">
-    <div class="col-6 offset-3">
-        <form action="edit.php" method="post">
+<div class="wrapper">
+    <div class="form-holder">
+        <h1>Edycja zadania</h1>
+        <form method="post" class="form">
             <div class="form-group">
-                <label for="1"><Treść zadania></label>
-                <textarea class="form-control" id="1" rows="3" name="task" placeholder="<?=$taskToDisplay['task']?>"><?=$taskToDisplay['task']?></textarea>
+                <textarea class="form-control" rows="3" name="task" placeholder="<?=$taskToDisplay['task']?>"><?=$taskToDisplay['task']?></textarea>
+            </div>
+            <div class="form-group">
+                <input type="datetime-local" name="date" value="<?=$newDate?>" required>
+            </div>
+            <div class="form-group">
                 <button type="submit" name="taskID" value="<?=$taskToDisplay['id']?>" class="btn btn-secondary">Zatwierdź zmianę</button>
             </div>
         </form>
-        <div class="statement">
-            <?php
-            if(isset($_SESSION['info']))
-            {
-                echo $_SESSION['info'];
-                unset($_SESSION['info']);
-            }
-            ?>
-        </div>
     </div>
+</div>
+
+
+<div class="footer">
+    Work In Progress &copy; <?php echo date("Y");?>
 </div>
