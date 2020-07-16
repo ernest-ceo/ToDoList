@@ -190,11 +190,16 @@ body
 
 .s1-box-2
 {
-    max-width: 500px;
+    max-width: 80%;
     position: center;
     margin: auto;
     align-items: center;
     text-align: center;
+}
+
+.s1-box-2 img
+{
+    max-width: 90%;
 }
 
 .s1-box-2 h6
@@ -223,7 +228,7 @@ body
 
 .s2-box-1 img
 {
-    max-width: 500px;
+    max-width: 400px;
 }
 
 #section-3
@@ -351,4 +356,53 @@ body
 
 .form-group a:hover {
     color: #444;
+}
+
+@media screen and (max-width: 800px) 
+{
+    #section-1, #section-2, #section-3
+    {
+        display: inline-block;
+        padding: auto;
+        max-width: 95vw;
+    }
+
+    .s1-box-1
+    {
+        max-width: 80%;
+        position: center;
+        margin: auto;
+        align-items: center;
+        text-align: justify;
+    }
+
+    .s1-box-2
+    {
+        max-width: 80%;
+        position: center;
+        margin: auto;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #section-2 div
+    {
+        max-width: 90%;
+        padding: auto;
+        margin: auto;
+        text-align: justify;
+        align-items: center;
+    }
+
+    .s2-box-1 img
+    {
+        max-width: 80%;
+    }
+
+    #section-3 .box-1, #section-3 .box-3, #section-3 .box-2
+    {
+        display: inline-block;
+        padding: auto;
+        width: 80%;
+    }
 }
