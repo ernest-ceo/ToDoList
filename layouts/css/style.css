@@ -190,11 +190,16 @@ body
 
 .s1-box-2
 {
-    max-width: 500px;
+    max-width: 80%;
     position: center;
     margin: auto;
     align-items: center;
     text-align: center;
+}
+
+.s1-box-2 img
+{
+    max-width: 90%;
 }
 
 .s1-box-2 h6
@@ -223,7 +228,7 @@ body
 
 .s2-box-1 img
 {
-    max-width: 500px;
+    max-width: 400px;
 }
 
 #section-3
@@ -351,4 +356,113 @@ body
 
 .form-group a:hover {
     color: #444;
+}
+
+@media screen and (max-width: 800px) 
+{
+    #section-1, #section-2, #section-3
+    {
+        display: inline-block;
+        padding: auto;
+        max-width: 95vw;
+    }
+
+    .s1-box-1
+    {
+        max-width: 80%;
+        position: center;
+        margin: auto;
+        align-items: center;
+        text-align: justify;
+    }
+
+    .s1-box-2
+    {
+        max-width: 80%;
+        position: center;
+        margin: auto;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #section-2 div
+    {
+        max-width: 90%;
+        padding: auto;
+        margin: auto;
+        text-align: justify;
+        align-items: center;
+    }
+
+    .s2-box-1 img
+    {
+        max-width: 80%;
+    }
+
+    #section-3 .box-1, #section-3 .box-3, #section-3 .box-2
+    {
+        display: inline-block;
+        padding: auto;
+        width: 80%;
+    }
+}
+
+
+.nav .checkbtn
+{
+    font-size: 30px;
+    color: white;
+    position: fixed;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+    right: 0;
+    cursor: pointer;
+    display: none;
+  }
+  
+.nav #check
+{
+    display: none;
+}
+
+@media screen and (max-width: 700px)
+{
+    .nav .checkbtn
+    {
+        display: flex;
+    }
+
+    ol
+    {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        top: 40px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.4s;
+        font-size: 20px;
+    }
+
+    .nav ol li
+    {
+        display: block;
+        margin-top: 40px;
+        margin: 0;
+        line-height: 25px;
+        background: #000;
+        width: 100%;
+    }
+
+    a:hover, a.active
+    {
+        color: #fff;
+    }
+
+    #check:checked ~ ol
+    {
+        left: 0;
+    }
 }
