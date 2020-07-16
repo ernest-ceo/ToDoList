@@ -68,14 +68,16 @@ class ListPrinter
 
     public function printTheList($list)
     {
+        $i=1;
         foreach ($list as $item)
         {
             $this->content.=
             '<tr>
-                <td style="width:5%;">'.$item['id'].'</td>
+                <td style="width:5%;">'.$i.'</td>
                 <td style="text-align:left; padding-left:10px;">'.$item['task'].'</td>
                 <td class="mono" style="width:20%;">'.$item['date'].'</td>
             </tr>';
+            $i++;
         }
         $this->content.=
         '</tbody>

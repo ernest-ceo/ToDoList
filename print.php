@@ -61,7 +61,6 @@ else
         $listPrinter = new ListPrinter();
         $mpdf = new Mpdf();
         $listToPrint = $listPrinter->printTheList($listArray);
-//        echo $listToPrint;
         $mpdf->WriteHTML($listToPrint);
         $mpdf->Output('Lista.pdf', 'D');
         header('location: list.php');
