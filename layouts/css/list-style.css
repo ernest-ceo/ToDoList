@@ -27,7 +27,7 @@
     display: flex;
     box-sizing: border-box;
     position: absolute;
-    height: calc(100% - 50px);
+    height: calc(100vh - 40px);
     width: 200px;
     top: 0px;
     left: -200px;
@@ -45,6 +45,7 @@
     flex-wrap: wrap;
     height: calc(100% - 20px);
     margin: 0 10px;
+    margin-top: 50px;
     padding: 0;
     list-style-type: none;
     align-content: flex-start;
