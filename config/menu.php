@@ -5,7 +5,6 @@ require_once 'config/session.php';
 if(isset($_SESSION['username']))
 {
     $menu = [
-        "index.php" => "Home",
         "list.php" => "Lista",
         "userpanel.php" => "Panel",
         "logout.php" => "Wyloguj"
@@ -14,7 +13,7 @@ if(isset($_SESSION['username']))
 } else {
     $menu = [
         "index.php" => "Home",
-        "registration.php" => "Rejestracja",
-        "login.php" => "Logowanie"
+        "login.php" => "Logowanie",
+        "registration.php" => "Rejestracja"
     ];
 }
