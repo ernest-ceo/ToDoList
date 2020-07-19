@@ -19,7 +19,7 @@ elseif(isset($_POST['edit']))
     $taskToDisplay = $listRepository->getTaskByID($_POST['edit']);
     $dateToDisplay = $listRepository->getDateByID($_POST['edit']);
     $dataConverter = strtotime($dateToDisplay['date']);
-    $newDate = date('Y-m-d\TH:i', $dataConverter);
+    $newDate = date('d.m.Y\ H:i', $dataConverter);
     $content[0]= 'layouts/edit.php';
 }
 elseif(isset($_POST['task'])&&$_POST['task']!==""&&$_POST['date']&&$_POST['date']!=="")

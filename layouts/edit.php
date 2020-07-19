@@ -6,7 +6,7 @@
                 <textarea class="form-control" rows="3" name="task" placeholder="<?=$taskToDisplay['task']?>"><?=$taskToDisplay['task']?></textarea>
             </div>
             <div class="form-group">
-                <input type="datetime-local" name="date" value="<?=$newDate?>" required>
+                <input type="text" class="my-datepicker" name="date" value="<?=$newDate?>" required>
             </div>
             <div class="form-group">
                 <button type="submit" name="taskID" value="<?=$taskToDisplay['id']?>" class="btn btn-secondary">Zatwierdź zmianę</button>
@@ -19,3 +19,12 @@
 <div class="footer">
     Work In Progress &copy; <?php echo date("Y");?>
 </div>
+
+<script src="./jquery.js"></script>
+<script src="./jquery.datetimepicker.full.min.js"></script>
+
+<script>
+    jQuery('.my-datepicker').datetimepicker({
+        format:'d.m.Y H:i'
+    });
+</script>

@@ -28,12 +28,11 @@
 <div class="hello">
     <h3>Witaj <?= $_SESSION['userFirstName'];?>!</h3>
 </div>
-
 <div class="section-task">
     <div class="add-task">
           <form action="add.php" method="post" autocomplete="off">
             <input class="input-task" type="text" name="task" placeholder="Dodaj nowe zadanie" required>
-              <input type="datetime-local" name="dateTimeAdd" required>
+              <input type="text" class="my-datepicker" name="dateTimeAdd" required>
             <button type="submit"><b>&#43;</b></button>
             <div class="radio-group">
 
@@ -96,3 +95,12 @@
           </form>
     </div>
 </div>
+
+<script src="./jquery.js"></script>
+<script src="./jquery.datetimepicker.full.min.js"></script>
+
+<script>
+    jQuery('.my-datepicker').datetimepicker({
+        format:'d.m.Y H:i'
+    });
+</script>
