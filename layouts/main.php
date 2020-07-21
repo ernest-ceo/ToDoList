@@ -15,7 +15,11 @@
 </head>
     <body>
         <div class="nav">
-        <img class="logo" src="./layouts/img/logo1.png" alt="Todokit" />
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fa fa-bars"></i>
+            </label>
+            <img class="logo" src="./layouts/img/logo1.png" alt="Todokit" />
             <ol>
                 <?php
                 include_once "menu.php";

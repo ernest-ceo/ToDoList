@@ -11,7 +11,10 @@
 </nav>
 
 <form id="print" action="print.php" method="post">
-    <button name="print">
+    <input type="hidden" name="category" value="<?=$category?>">
+    <input type="hidden" name="sortBy" value="<?=$sortBy?>">
+    <input type="hidden" name="orderBy" value="<?=$orderBy?>">
+    <button type="submit" name="print">
         <i class="fa fa-print" style="scale: 1.5"></i>Drukuj
     </button>
 </form>
@@ -49,12 +52,10 @@
 </div>
 
 <div class="section-list">
-
         <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=ASC"?>">Data ^</a>&nbsp
         <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=ASC"?>">Nazwa ^</a>&nbsp
         <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=DESC"?>">Data v</a>&nbsp
         <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=DESC"?>">Nazwa v</a>
-
     <?php foreach ($listArray as $item) { ?>
         <div class="list-item">
             <form action="delete.php" method="post">

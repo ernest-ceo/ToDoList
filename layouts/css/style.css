@@ -9,7 +9,6 @@ html
 body 
 {
     background-color: grey;
-    color: #fff;
     display: flex;
     flex-direction: column;
     background-image: url('../img/img01.jpg');
@@ -149,69 +148,117 @@ body
 
 .section {
     color:#000;
+    background:#f4f4f4;
     background-attachment: fixed;
     max-width: 100vw;
     justify-content: center;
     align-items: center;
-    text-align: justify;
+    text-align: center;
+    justify-items: center;
+}
+
+#section-header
+{
+    background:#f4f4f4;
+    max-width: 1200px;
+    padding: 10% 5%;
+    line-height: 2em;
+    margin: auto;
+}
+
+#section-header h2
+{
+    line-height: 2em;
 }
 
 #section-1
 {
     display: flex;
     background:#ebebeb;
+    padding: 10% 5%;
 }
 
-#section-1 div
+.s1-box-1
 {
-    padding:20px;
+    max-width: 700px;
+    position: center;
+    margin: auto;
+    align-items: center;
+    text-align: justify;
+    margin-right: 30px;
 }
 
 .s1-box-2
 {
-    min-width: 300px;
+    max-width: 80%;
     position: center;
     margin: auto;
     align-items: center;
     text-align: center;
 }
 
+.s1-box-2 img
+{
+    max-width: 90%;
+}
+
+.s1-box-2 h6
+{
+    margin-top: 1em;
+}
+
+.s1-box-1 h3, .s2-box-2 h3
+{
+    text-align: center;
+    line-height: 2em;
+}
+
 #section-2
 {
     display: flex;
     background:#f4f4f4;
+    padding: 10% 5%;
 }
 
 #section-2 div
 {
     padding:20px;
+    max-width: 700px;
 }
 
 .s2-box-1 img
 {
-    height: 350px;
+    max-width: 400px;
 }
 
 #section-3
 {
     display:flex;
+    width: 100%;
+    background:#ebebeb;
+    position: relative;
+    text-align: justify;
 }
 
 #section-3 div
 {
-    padding:20px;
+    padding: 20px;
 }
 
-#section-3 .box-1, #section-3 .box-3
+#section-3 .box-1, #section-3 .box-3, #section-3 .box-2
 {
-    min-width: 300px;
-    background:#ebebeb;
-}
-
-#section-3 .box-2
-{
-    min-width: 300px;
+    width: 30%;
     background:#f4f4f4;
+    border-radius: 5px;
+    padding: 3%;
+    box-shadow: 5px 5px 20px 1px #333;
+    margin: 40px;
+}
+
+#section-3 img
+{
+    max-width: 150px;
+    margin-bottom: 40px;
 }
 
 .wrapper
@@ -311,9 +358,111 @@ body
     color: #444;
 }
 
-.statement {
-    background-color: red;
-    text-align: center;
-    margin: 10px 30px 5px 30px;
-    border-radius: 10px;
+@media screen and (max-width: 800px) 
+{
+    #section-1, #section-2, #section-3
+    {
+        display: inline-block;
+        padding: auto;
+        max-width: 95vw;
+    }
+
+    .s1-box-1
+    {
+        max-width: 80%;
+        position: center;
+        margin: auto;
+        align-items: center;
+        text-align: justify;
+    }
+
+    .s1-box-2
+    {
+        max-width: 80%;
+        position: center;
+        margin: auto;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #section-2 div
+    {
+        max-width: 90%;
+        padding: auto;
+        margin: auto;
+        text-align: justify;
+        align-items: center;
+    }
+
+    .s2-box-1 img
+    {
+        max-width: 80%;
+    }
+
+    #section-3 .box-1, #section-3 .box-3, #section-3 .box-2
+    {
+        display: inline-block;
+        padding: auto;
+        width: 80%;
+    }
+}
+
+
+.nav .checkbtn
+{
+    font-size: 30px;
+    color: white;
+    position: fixed;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+    right: 0;
+    cursor: pointer;
+    display: none;
+  }
+  
+.nav #check
+{
+    display: none;
+}
+
+@media screen and (max-width: 700px)
+{
+    .nav .checkbtn
+    {
+        display: flex;
+    }
+
+    ol
+    {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        top: 40px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.4s;
+        font-size: 20px;
+    }
+
+    .nav ol li
+    {
+        display: block;
+        margin-top: 40px;
+        margin: 0;
+        line-height: 25px;
+        background: #000;
+        width: 100%;
+    }
+
+    a:hover, a.active
+    {
+        color: #fff;
+    }
+
+    #check:checked ~ ol
+    {
+        left: 0;
+    }
 }
