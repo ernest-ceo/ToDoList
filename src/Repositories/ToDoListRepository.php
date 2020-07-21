@@ -89,12 +89,14 @@ class ToDoListRepository
     {
         try
         {
+            $dataConverter = strtotime($dateTimeAdd);
+            $newDate = date('Y-m-d\TH:i', $dataConverter);
             $query = "INSERT INTO `list` (user_id, task, date, category_id)
                         VALUES (:user_id, :task, :date_time_add, :category_id)";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
             $stmt->bindValue(':user_id', $userID, PDO::PARAM_INT);
-            $stmt->bindValue(':date_time_add', $dateTimeAdd, PDO::PARAM_INT);
+            $stmt->bindValue(':date_time_add', $newDate, PDO::PARAM_INT);
             $stmt->bindValue(':category_id', $categoryID, PDO::PARAM_INT);
             $result = $stmt->execute();
             return (bool)($result);
@@ -110,12 +112,14 @@ class ToDoListRepository
     {
         try
         {
+            $dataConverter = strtotime($date);
+            $newDate = date('Y-m-d\TH:i', $dataConverter);
             $query = "UPDATE `list`
                         SET `task`=:task, `date`=:date
                         WHERE `id`=:id";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
-            $stmt->bindValue(':date', $date, PDO::PARAM_STR);
+            $stmt->bindValue(':date', $newDate, PDO::PARAM_STR);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $result=$stmt->execute();
             return (bool)($result);

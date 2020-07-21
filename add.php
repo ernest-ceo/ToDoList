@@ -18,5 +18,7 @@ if(isset($_POST['categoryID'], $_POST['dateTimeAdd'])&&isset($_POST['task'])&&$_
     $listRepository = new ToDoListRepository($pdo);
     $listRepository->addNewTask($_POST['task'], (int)$_POST['categoryID'], $_SESSION['userID'], $_POST['dateTimeAdd']);
     header('location: list.php');
+    $dataConverter = strtotime($_POST['dateTimeAdd']);
+    $newDate = date('Y-m-d\TH:i', $dataConverter);
     die;
 }
