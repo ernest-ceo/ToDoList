@@ -1,6 +1,6 @@
-.topnav 
+.topnav
 {
-    position: absolute;
+    position: fixed;
     top: 40px;
     display: flex;
     justify-content: flex-start;
@@ -13,8 +13,8 @@
 
 .topnav button 
 {
-    position: relative;
-    top: 15px;
+    position: fixed;
+    top: 50px;
     border: 0;
     background: none;
     color: #fff;
@@ -94,29 +94,26 @@ ul > li:hover a
 {
     position: absolute;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 20px;
-    left: 250px;
-    max-width: 420px;
-    height: 100px;
+    align-self: center;
+    justify-self: center;
+    top: 40px;
+    height: 60px;
     margin: 15px auto;
-    border-radius: 5px;
 }
 
 .section-task
 {
-    position: absolute;
-    display: flex;
+    position: relative;
+    display: inline-block;
     align-items: center;
     justify-content: center;
-    top: 120px;
+    margin-top: 120px;
     left: 250px;
-    max-width: 420px;
+    max-width: 480px;
     width: 90%;
     height: 100px;
-    margin: 15px auto;
     border-radius: 5px;
+    text-align: justify;
 }
 
 .add-task
@@ -133,7 +130,7 @@ ul > li:hover a
 {
     display: inline-block;
     align-items: center;
-    width: calc(100% - 55px);
+    width: 100%;
     height: 45px;
     margin: 10px auto;
     font-size: 0.8em;
@@ -142,13 +139,26 @@ ul > li:hover a
     border: 1px solid gray;
 }
 
+.add-task .my-datepicker
+{
+    display: inline-block;
+    align-items: center;
+    width: calc(100% - 55px);
+    height: 45px;
+    margin: 10px auto;
+    font-size: 0.8em;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+    margin-right: 4px;
+}
+
 .add-task button
 {
     position: relative;
     width: 45px;
     height: 45px;
-    margin: 0px auto;
-    border: none;
+    margin: 0 auto;
     outline: none;
     background: #111;
     border: 1px solid gray;
@@ -157,10 +167,9 @@ ul > li:hover a
     font-size: 0.9em;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 2px;
 }
 
-.add-task .input-task:hover, .add-task button:hover
+.add-task .input-task:hover, .add-task .my-datepicker:hover, .add-task button:hover
 {
     box-shadow: 0px 0px 20px 1px #333;
 }
@@ -176,6 +185,7 @@ ul > li:hover a
     color: #fff;
     position: relative;
     white-space: nowrap;
+    overflow: auto;
 }
 
 .radio-group input
@@ -185,22 +195,31 @@ ul > li:hover a
     margin-left: 20px;
 }
 
+@media screen and (max-width: 440px)
+{
+    .radio-group input
+    {
+        margin: 5px 5px 10px;
+        margin-left: 10px;
+    }
+}
+
 .section-list
 {
-    position: absolute;
-    top: 270px;
+    position: relative;
+    display: inline-block;
+    margin-top: 100px;
     left: 250px;
     align-items: center;
     justify-content: center;
-    max-width: 420px;
+    max-width: 480px;
     width: 90%;
     height: auto;
-    margin: 5px;
     background: #111;
     opacity: 0.8;
-    margin: 0px auto;
     padding: 8px;
     border-radius: 5px;
+    text-align: justify;
 }
 
 .list-item
@@ -283,13 +302,13 @@ ul > li:hover a
 
 #print
 {
-    display: flex;  
-    position: absolute;
+    display: flex;
+    position: fixed;
     align-items: center;
     justify-content: center;
     background-image: none;
     top: 50px;
-    right: 30px;
+    right: 10px;
 }
 
 #print button
@@ -298,12 +317,10 @@ ul > li:hover a
     height: 45px;
     margin: 0px auto;
     padding: 10px;
-    border: none;
     outline: none;
     background: #111;
     border: 1px solid gray;
     color: #fff;
-    font-family: Roboto;
     font-weight: 300;
     font-size: 0.9em;
     border-radius: 5px;
@@ -321,6 +338,23 @@ ul > li:hover a
     margin-right: 10px;
 }
 
+@media screen and (max-width: 700px)
+{
+    #print
+    {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    #print button
+    {
+        width: 45px;
+        overflow: hidden;
+    }
+}
+
 .section-notes
 {
     position: absolute;
@@ -329,14 +363,13 @@ ul > li:hover a
     justify-content: center;
     align-items: center;
     right: 10px;
-    background: transparent;
-    max-width: 420px;
+    max-width: 480px;
     width: 90%;
     height: 500px;
     margin: 15px auto;
     border-radius: 5px;
-    top: 14px;
-    left: 700px;
+    top: 30px;
+    left: 750px;
     z-index: 3;
 
 }
@@ -355,7 +388,6 @@ ul > li:hover a
 {
     display: inline-block;
     align-items: center;
-    width: calc(100% - 55px);
     height: 200px;
     width: 100%;
     margin: 10px auto;
@@ -365,7 +397,6 @@ ul > li:hover a
     border: 1px solid gray;
     flex-wrap: wrap;
 }
-
 
 .add-notes input
 {
@@ -385,7 +416,6 @@ ul > li:hover a
     width: 45px;
     height: 45px;
     margin: 0px auto;
-    border: none;
     outline: none;
     background: #111;
     border: 1px solid gray;
@@ -399,7 +429,7 @@ ul > li:hover a
 
 .add-notes button:hover
 {
-    box-shadow: 0px 0px 20px 1px #333;
+    box-shadow: 0 0 20px 1px #333;
 }
 
 .add-notes h3 
@@ -409,4 +439,77 @@ ul > li:hover a
     font-size: 1.3em;
     font-weight: 300;
     color: #fff;
+}
+
+#sort
+{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+}
+
+#sort button
+{
+    outline: none;
+    background: #111;
+    border: 1px solid gray;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    padding: 2px 10px;
+    margin: 0 5px;
+    width: 22%;
+}
+
+#sort button a
+{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+}
+
+#sort button:hover
+{
+    box-shadow: 0 0 20px 1px #333;
+}
+
+@media screen and (max-width: 1300px)
+{
+    .section-task, .section-list, .section-notes
+    {
+        position: relative;
+        display: block;
+        justify-content: center;
+        width: 90%;
+        max-width: 480px;
+        margin: auto;
+        align-items: center;
+        text-align: justify;
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .section-task
+    {
+        margin-top: 120px;
+    }
+
+    .section-list
+    {
+        position: relative;
+        display: block;
+        margin-top: 100px;
+    }
+
+    .section-notes
+    {
+        position: relative;
+        display: block;
+        margin-top: 20px;
+    }
 }

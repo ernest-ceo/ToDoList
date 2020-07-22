@@ -35,8 +35,8 @@
     <div class="add-task">
           <form action="add.php" method="post" autocomplete="off">
             <input class="input-task" type="text" name="task" placeholder="Dodaj nowe zadanie" required>
-              <input type="text" class="my-datepicker" name="dateTimeAdd" required>
-            <button type="submit"><b>&#43;</b></button>
+              <input type="text" class="my-datepicker" name="dateTimeAdd" placeholder="Wybierz datę wykonania zadania" required>
+            <button title="Dodaj zadanie" type="submit"><b>&#43;</b></button>
             <div class="radio-group">
 
                 Wybierz kategorię:
@@ -52,19 +52,33 @@
 </div>
 
 <div class="section-list">
-        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=ASC"?>">Data ^</a>&nbsp
-        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=ASC"?>">Nazwa ^</a>&nbsp
-        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=DESC"?>">Data v</a>&nbsp
-        <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=DESC"?>">Nazwa v</a>
+    <div id="sort">
+        <button name="sort">
+            <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=ASC"?>">Nazwa &nbsp;<i class="fa fa-sort-up"></i></a>
+        </button>
+        <button name="sort">
+            <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=task&orderBy=DESC"?>">Nazwa &nbsp;<i class="fa fa-sort-down"></i></a>
+        </button>
+        <button name="sort">
+            <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=ASC"?>">Data &nbsp;<i class="fa fa-sort-up"></i></i></a>
+        </button>
+        <button name="sort">
+            <a href="<?=ROOT_URL."list.php$categoryURL&sortBy=date&orderBy=DESC"?>">Data &nbsp;<i class="fa fa-sort-down"></i></a>
+        </button>
+
+    </div>
+    
     <?php foreach ($listArray as $item) { ?>
         <div class="list-item">
             <form action="delete.php" method="post">
-                <button name="delete" class="remove-task" value="<?=$item['id']?>">
-                    <i class="fa fa-window-close" style="scale: 0.9"></i>
+                <button title="Usuń" name="delete" class="remove-task" value="<?=$item['id']?>">
+                    <a onclick="return confirm('Czy chcesz skasować zadanie?')">
+                        <i class="fa fa-window-close" style="scale: 0.9"></i>
+                    </a>
                 </button>
             </form>
             <form action="edit.php" method="post">
-                <button name="edit" class="edit-task" value="<?=$item['id']?>">
+                <button title="Edycja" name="edit" class="edit-task" value="<?=$item['id']?>">
                     <i class="fa fa-edit"></i>
                 </button>
             </form>
@@ -95,6 +109,10 @@
             <button type="submit"><b>&#43;</b></button>
         </form>
     </div>
+</div>
+
+<div class="footer">
+    Work In Progress &copy; <?php echo date("Y");?>
 </div>
 
 <script src="./jquery.js"></script>
