@@ -5,6 +5,7 @@ require_once 'config/session.php';
 if(isset($_SESSION['username']))
 {
     $menu = [
+        "index.php" => "Home",
         "list.php" => "Lista",
         "userpanel.php" => "Panel",
         "logout.php" => "Wyloguj"
