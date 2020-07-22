@@ -9,7 +9,8 @@
                 <input type="text" class="my-datepicker" name="date" value="<?=$newDate?>" required>
             </div>
             <div class="form-group">
-                <button type="submit" name="taskID" value="<?=$taskToDisplay['id']?>" class="btn btn-secondary">Zatwierdź zmianę</button>
+                <button><a href="list.php" class="button">Anuluj</a></button>
+                <button type="submit" name="taskID" value="<?=$taskToDisplay['id']?>" class="button">Zatwierdź zmianę</button>
             </div>
         </form>
     </div>

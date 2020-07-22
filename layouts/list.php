@@ -36,7 +36,7 @@
           <form action="add.php" method="post" autocomplete="off">
             <input class="input-task" type="text" name="task" placeholder="Dodaj nowe zadanie" required>
               <input type="text" class="my-datepicker" name="dateTimeAdd" placeholder="Wybierz datę wykonania zadania" required>
-            <button type="submit"><b>&#43;</b></button>
+            <button title="Dodaj zadanie" type="submit"><b>&#43;</b></button>
             <div class="radio-group">
 
                 Wybierz kategorię:
@@ -71,12 +71,14 @@
     <?php foreach ($listArray as $item) { ?>
         <div class="list-item">
             <form action="delete.php" method="post">
-                <button name="delete" class="remove-task" value="<?=$item['id']?>">
-                    <i class="fa fa-window-close" style="scale: 0.9"></i>
+                <button title="Usuń" name="delete" class="remove-task" value="<?=$item['id']?>">
+                    <a onclick="return confirm('Czy chcesz skasować zadanie?')">
+                        <i class="fa fa-window-close" style="scale: 0.9"></i>
+                    </a>
                 </button>
             </form>
             <form action="edit.php" method="post">
-                <button name="edit" class="edit-task" value="<?=$item['id']?>">
+                <button title="Edycja" name="edit" class="edit-task" value="<?=$item['id']?>">
                     <i class="fa fa-edit"></i>
                 </button>
             </form>
