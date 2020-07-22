@@ -466,3 +466,17 @@ body
         left: 0;
     }
 }
+
+.statementRed {
+    background-color: red;
+    text-align: center;
+    margin: 10px 30px 5px 30px;
+    border-radius: 10px;
+}
+
+.statementGreen {
+    background-color: green;
+    text-align: center;
+    margin: 10px 30px 5px 30px;
+    border-radius: 10px;
+}

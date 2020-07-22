@@ -13,7 +13,7 @@
                 <button type="submit" name="resetPassword">Zmień hasło</button>
             </div>
         </form>
-        <div class="statement">
+        <div class="statementRed">
             <?php
             if(isset($_SESSION['info']))
             {

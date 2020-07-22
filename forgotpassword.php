@@ -23,7 +23,7 @@ if(isset($_POST['email'])){
             $PHPmailer = new PHPMailer(true);
             $mailer = new Mailer($PHPmailer);
             $mailer->sendPasswordResetMessage($_POST['email'], $rkey);
-            $_SESSION['info']="Wysłano emaila.";
+            $_SESSION['confirmation']="Wysłano e-maila z linkiem resetującym hasło.";
         }else{
             $_SESSION['info']="Podano nieprawidłowy email.";
         }

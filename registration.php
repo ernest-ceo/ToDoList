@@ -57,12 +57,12 @@ if(isset($_POST['register']))
                 {
                     $hashedPassword = password_hash($_POST['password'],PASSWORD_BCRYPT);
                     $users->createNewUser($_POST['first_name'], $_POST['second_name'], $_POST['email'], $hashedPassword, $vkey);
-                    $_SESSION['info'] = "Dodano nowego użytkownika. Link aktywacyjny został wysłany na podany adres e-mail.";
+                    $_SESSION['confirmation'] = "Dodano nowego użytkownika. Link aktywacyjny został wysłany na podany adres e-mail.";
                 }
             }
             else
             {
-                $_SESSION['info'] = "Pola 'Hasło' i 'Powtórz hasło' różnią się. Spróbuj ponownie.";
+                $_SESSION['info'] = "Podane hasła nie są jednakowe";
             }
         }
     }

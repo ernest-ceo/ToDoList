@@ -192,7 +192,7 @@ class ToDoListRepository
                     $stmt->bindValue(':passwordNewHash', $passwordNewHash, PDO::PARAM_STR);
                     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                     $stmt->execute();
-                    echo('Hasło zostało zmienione');
+                    $_SESSION['confirmation'] = "Hasło zostało zmienione";
                 }else{
                     $_SESSION['info'] = "Podano błędne hasło";
                 }

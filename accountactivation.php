@@ -13,7 +13,7 @@ if(isset($_GET['vkey']))
     $users = new UsersRepository($pdo);
     if($users->verifyAccount($vkey))
     {
-        $_SESSION['info']="Pomyślnie aktywowano konto. Możesz się zalogować.";
+        $_SESSION['confirmation']="Pomyślnie aktywowano konto. Możesz się zalogować.";
         header('location: login.php');
     }
     else

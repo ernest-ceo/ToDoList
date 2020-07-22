@@ -18,7 +18,7 @@
         <i class="fa fa-print" style="scale: 1.5"></i>Drukuj
     </button>
 </form>
-<div class="statement">
+<div class="statementRed">
     <?php
     if(isset($_SESSION['info']))
     {
