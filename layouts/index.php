@@ -34,7 +34,7 @@ display: block;
             <p>Jeśli zdecydowałeś się już na spotkanie, zadbaj o to, aby było jak najlepiej zorganizowane. Uczestnicy powinni wiedzieć wcześniej jaki jest cel i przebieg spotkania oraz jak długo będzie trwało. Staraj się zmieścić w wyznaczonym czasie.</p>
         </div>
         <div class="s1-box-2">
-            <img src="./layouts/img/rating.png" alt="rating" />
+            <img id="img-rating" src="./layouts/img/rating.png" alt="rating" />
             <h6>Nr 1 wśród użytkowników</h6>
         </div>
     </div>
