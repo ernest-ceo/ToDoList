@@ -7,3 +7,10 @@ return [
     'user' => 'root',
     'password' => ''
 ];
+
+/*
+ * Baza danych:	bd19587_todolist
+Host:	localhost
+Użytkownik:	bd19587_todolist
+Hasło:	ToDoList12345!
+ */
