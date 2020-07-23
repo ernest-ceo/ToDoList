@@ -7,7 +7,7 @@ use PDOException;
 
 class ToDoListRepository
 {
-    public Database $db;
+    public $db;
     public $list;
 
     public function __construct($pdo)
