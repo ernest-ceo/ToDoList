@@ -10,8 +10,10 @@ namespace App;
 
 class Mailer
 {
-    public PHPMailer $mailer;
-    public UsersRepository $users;
+    public $mailer;
+    public $users;
+//    private const ROOT_URL = "http://bd19587.wsbpoz.solidhost.pl/todolist/";
+    private const ROOT_URL = "http://localhost/ToDoList/";
 
     public function __construct(PHPMailer $mailer)
     {
@@ -44,7 +46,7 @@ class Mailer
             $this->mailer->addAddress($receiver);
             $this->mailer->isHTML(true);
             $this->mailer->Subject = 'Aktywacja konta';
-            $body = '<a href="http://localhost/ToDoList/accountactivation.php?vkey=' . $verificationKey . '">Aktywuj konto</a>';
+            $body = '<a href="'.self::ROOT_URL.'accountactivation.php?vkey=' . $verificationKey . '">Aktywuj konto</a>';
             $this->mailer->Body = $body;
             $this->mailer->AltBody = $body;
             $this->mailer->send();
@@ -63,7 +65,7 @@ class Mailer
             $this->mailer->addAddress($receiver);
             $this->mailer->isHTML(true);
             $this->mailer->Subject = 'Reset hasla';
-            $body = '<a href="http://localhost/ToDoList/resetpassword.php?rkey=' . $resetKey . '">Reset hasła</a>';
+            $body = '<a href="'.self::ROOT_URL.'resetpassword.php?rkey=' . $resetKey . '">Reset hasła</a>';
             $this->mailer->Body = $body;
             $this->mailer->AltBody = $body;
             $this->mailer->send();
