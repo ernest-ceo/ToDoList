@@ -11,7 +11,10 @@ if(isset($_POST['resetPassword']))
 {
     $pdo = new Database(require_once ('config/database.php'));
     $passwordReset = new UsersRepository($pdo);
-    $passwordReset->resetPassword($_GET['rkey'], $_POST['password'], $_POST['passwordRepeated']);
+    if($passwordReset->checkIfNewPasswordIsOk($_POST['password'], $_POST['passwordRepeated']))
+    {
+        $passwordReset->resetPassword($_GET['rkey'], $_POST['password'], $_POST['passwordRepeated']);
+    }
 }
 
 $content = array();
