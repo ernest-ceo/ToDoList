@@ -100,11 +100,7 @@
     <?php } ?>
 </div>
 
-<div class="my-datepicker2" onload="jQuery('.my-datepicker').datetimepicker({
-            format: 'd.m.Y H:i'
-        });">
 
-</div>
 
 <div class="footer">
     Work In Progress &copy; <?php echo date("Y");?>
@@ -117,11 +113,4 @@
     jQuery('.my-datepicker').datetimepicker({
         format:'d.m.Y H:i'
     });
-</script>
-<script>
-    function calendar() {
-        jQuery('.my-datepicker2').datetimepicker({
-            format: 'd.m.Y H:i'
-        });
-    }
 </script>
