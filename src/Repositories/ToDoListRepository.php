@@ -43,7 +43,7 @@ class ToDoListRepository
     {
         try
         {
-            $query = 'SELECT `id`, `task` FROM `list`
+            $query = 'SELECT `id`, `task`, `category_id` FROM `list`
                        WHERE `id`=:id';
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -108,18 +108,19 @@ class ToDoListRepository
         }
     }
 
-    public function updateTask(string $task, int $id, $date)
+    public function updateTask(string $task, int $id, $category, $date)
     {
         try
         {
             $dataConverter = strtotime($date);
             $newDate = date('Y-m-d\TH:i', $dataConverter);
             $query = "UPDATE `list`
-                        SET `task`=:task, `date`=:date
+                        SET `task`=:task, `category_id`=:category_id, `date`=:date
                         WHERE `id`=:id";
             $stmt=$this->db->pdo->prepare($query);
             $stmt->bindValue(':task', $task, PDO::PARAM_STR);
             $stmt->bindValue(':date', $newDate, PDO::PARAM_STR);
+            $stmt->bindValue(':category_id', $category, PDO::PARAM_INT);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $result=$stmt->execute();
             return (bool)($result);
