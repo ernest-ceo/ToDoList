@@ -75,7 +75,25 @@ class UsersRepository
 
     public function checkIfNewPasswordIsOk(string $newPassword, string $newPasswordValidate)
     {
-        return (bool) ($newPassword===$newPasswordValidate);
+        if($newPassword===$newPasswordValidate) {
+            if (strlen($newPassword) < 8) {
+                $_SESSION['info'] = "Hasło musi mieć co najmniej 8 znaków!";
+                return false;
+            } elseif ($newPassword === strtolower($newPassword) OR $newPassword===strtoupper($newPassword)) {
+                $_SESSION['info'] = "Hasło musi składać się z małych i wielkich liter!";
+                return false;
+            } elseif (!preg_match("/\d/", $newPassword) OR !preg_match("/\W/", $newPassword) OR preg_match("/\s/", $newPassword)) {
+                $_SESSION['info'] = "Hasło musi zawierać co najmniej jeden znak specjalny, cyfrę oraz nie może składać się ze znaków białych!";
+                return false;
+            } else {
+                return true;
+            }
+        }
+        else
+        {
+            $_SESSION['info'] = "Podane hasła są różne!";
+            return false;
+        }
     }
 
     public function createNewUser(string $firstName, $secondName, $email, string $hashedPassword, string $vkey)
