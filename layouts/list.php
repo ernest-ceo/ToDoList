@@ -88,27 +88,22 @@
             <small>Kategoria: <?php switch($item['category_id']){
                 case 1:
                     echo "Dom";
-                    break;
-                    case 2:
-                        echo "Praca";
-                        break;
-                        case 3:
-                        echo "Rozrywka";
-                        break;
+                break;
+                case 2:
+                    echo "Praca";
+                break;
+                case 3:
+                    echo "Rozrywka";
+                break;
                 }?></small>
         </div>
     <?php } ?>
 </div>
 
-<div class="section-notes">
-    <div class="add-notes">
-        <form action="#" method="POST" autocomplete="off">
-            <h3>Notatki</h3>
-            <textarea type="text" name="title"></textarea>
-            <input type="text" name="title" placeholder="Dodaj notatkę">
-            <button type="submit"><b>&#43;</b></button>
-        </form>
-    </div>
+<div class="my-datepicker2" onload="jQuery('.my-datepicker').datetimepicker({
+            format: 'd.m.Y H:i'
+        });">
+
 </div>
 
 <div class="footer">
@@ -122,4 +117,11 @@
     jQuery('.my-datepicker').datetimepicker({
         format:'d.m.Y H:i'
     });
+</script>
+<script>
+    function calendar() {
+        jQuery('.my-datepicker2').datetimepicker({
+            format: 'd.m.Y H:i'
+        });
+    }
 </script>
