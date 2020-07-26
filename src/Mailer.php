@@ -28,9 +28,13 @@ class Mailer
             );
 //            $this->mailer->SMTPDebug = SMTP::DEBUG_SERVER;
             $this->mailer->isSMTP();
-            $this->mailer->Host = 'smtp.gmail.com';
-            $this->mailer->Username = 'todolistwo6@gmail.com';
-            $this->mailer->Password = 'todolist12345';
+
+//            $this->mailer->Host = 'smtp.gmail.com';
+//            $this->mailer->Username = 'todolistwo6@gmail.com';
+//            $this->mailer->Password = 'todolist12345';
+            $this->mailer->Host = 'smtp.mailtrap.io';
+            $this->mailer->Username = '20f99de4000faa';
+            $this->mailer->Password = '0a882300f33477';
             $this->mailer->SMTPAuth = true;
             $this->mailer->SMTPSecure = "tls";
             $this->mailer->Port = 587;
