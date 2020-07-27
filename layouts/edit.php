@@ -8,7 +8,7 @@
             <div class="form-group">
                 <input type="text" class="my-datepicker" name="date" value="<?=$newDate?>" required>
             </div>
-            <div class="radio-group">
+            <div class="radio-group2">
                 Wybierz kategorię:
                 <input type="radio" name="categoryID" id="dom"  value="1" required checked>
                 <label for="dom">Dom</label>

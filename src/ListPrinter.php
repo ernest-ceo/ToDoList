@@ -54,7 +54,7 @@ class ListPrinter
                                 <tr style="background:#eee;">
                                     <th style="width:5%;"><b>#</b></th>
                                     <th><b>Zadanie</b></th>
-                                    <th style="width:20%;"><b>Data utworzenia</b></th>
+                                    <th style="width:20%;"><b>Data wykonania</b></th>
                                 </tr>
 
                                 <tbody>';
