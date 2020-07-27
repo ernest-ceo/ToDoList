@@ -26,7 +26,7 @@ elseif(isset($_POST['task'])&&$_POST['task']!==""&&$_POST['date']&&$_POST['date'
 {
     $pdo = new Database(require_once ('config/database.php'));
     $listRepository = new ToDoListRepository($pdo);
-    $listRepository->updateTask($_POST['task'], (int)$_POST['taskID'], $_POST['category'], $_POST['date']);
+    $listRepository->updateTask($_POST['task'], (int)$_POST['taskID'], $_POST['categoryID'], $_POST['date']);
     header('location: list.php');
     die;
 }
